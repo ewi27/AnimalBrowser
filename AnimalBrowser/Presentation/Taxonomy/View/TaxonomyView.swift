@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TaxonomyView: UIView {
+final class TaxonomyView: UIView {
     
     struct Model {
         var kingdomText: String

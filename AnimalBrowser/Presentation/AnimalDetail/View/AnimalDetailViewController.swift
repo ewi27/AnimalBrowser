@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AnimalDetailViewController: UIViewController {
+final class AnimalDetailViewController: UIViewController {
     
     private let detailTableView: UITableView = {
         let tableView = UITableView()
@@ -17,7 +17,7 @@ class AnimalDetailViewController: UIViewController {
         return tableView
     }()
     
-    private var viewModel: AnimalDetailViewModel
+    private let viewModel: AnimalDetailViewModel
     private var sections: [AnimalDetailSectionList] = [AnimalDetailSectionList]()
     
     init(viewModel: AnimalDetailViewModel) {
@@ -32,9 +32,9 @@ class AnimalDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.detailTableView.layer.cornerRadius = 25
-        self.detailTableView.layer.masksToBounds = true
+        navigationController?.navigationBar.tintColor = .darkGray
+        detailTableView.layer.cornerRadius = 25
+        detailTableView.layer.masksToBounds = true
         detailTableView.dataSource = self
         detailTableView.delegate = self
         setupConstraints()
@@ -42,13 +42,13 @@ class AnimalDetailViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        self.sections = self.viewModel.makeSections()
-        self.viewModel.giveTaxonomy = { [weak self] model in
+        sections = self.viewModel.makeSections()
+        viewModel.giveTaxonomy = { [weak self] model in
             let viewModel = TaxonomyViewModel(model: model)
             let viewController = TaxonomyViewController(viewModel: viewModel)
             self?.navigationController?.pushViewController(viewController, animated: true)
         }
-        self.viewModel.giveCharacteristics = { [weak self] model in
+        viewModel.giveCharacteristics = { [weak self] model in
             let viewModel = CharacteristicsViewModel(model: model)
             let viewController = CharacteristicsViewController(viewModel: viewModel)
             self?.navigationController?.pushViewController(viewController, animated: true)
@@ -68,26 +68,26 @@ class AnimalDetailViewController: UIViewController {
 extension AnimalDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.viewModel.numberOfCell(at: section)
+       viewModel.numberOfCell(at: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        self.viewModel.numberOfSections()
+        viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch sections[indexPath.section] {
         case .taxonomy(let taxo):
             let cell = detailTableView.dequeueReusableCell(withIdentifier: AnimalTableViewCell.idetifier, for: indexPath) as! AnimalTableViewCell
-            cell.setupModel(model: .init(text: taxo))
+            cell.setupModel(with: .init(text: taxo))
             return cell
         case .locations(let locations):
             let cell = detailTableView.dequeueReusableCell(withIdentifier: AnimalTableViewCell.idetifier, for: indexPath) as! AnimalTableViewCell
-            cell.setupModel(model: .init(text: locations[indexPath.row]))
+            cell.setupModel(with: .init(text: locations[indexPath.row]))
             return cell
         case .characteristics(let char):
             let cell = detailTableView.dequeueReusableCell(withIdentifier: AnimalTableViewCell.idetifier, for: indexPath) as! AnimalTableViewCell
-            cell.setupModel(model: .init(text: char))
+            cell.setupModel(with: .init(text: char))
             return cell
         }
     }
@@ -99,11 +99,7 @@ extension AnimalDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        self.viewModel.sectionsTitle(at: section)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        viewModel.sectionsTitle(at: section)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

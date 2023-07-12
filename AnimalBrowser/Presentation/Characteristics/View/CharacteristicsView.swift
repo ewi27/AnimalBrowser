@@ -7,15 +7,11 @@
 
 import UIKit
 
-struct CharacteristicsModel {
-    var text: [String] = []
-}
-
-class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDelegate {
+final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDelegate {
     
-    var model: [String] = []
-    var constraint = NSLayoutConstraint()
-    let table: UITableView = {
+    private var model: [String] = []
+    private var constraint = NSLayoutConstraint()
+    private let table: UITableView = {
         let table = UITableView()
         table.register(AnimalTableViewCell.self, forCellReuseIdentifier: AnimalTableViewCell.idetifier)
         table.rowHeight = 100
@@ -24,7 +20,7 @@ class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .lightGray
+        backgroundColor = .lightGray
         table.delegate = self
         table.dataSource = self
         setupTable()
@@ -41,27 +37,27 @@ class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func updateTableConstraints() {
-        constraint.isActive = false
-        constraint = table.heightAnchor.constraint(equalToConstant: table.contentSize.height)
-        constraint.isActive = true
+            constraint.isActive = false
+            constraint = table.heightAnchor.constraint(equalToConstant: table.contentSize.height)
+            constraint.isActive = true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = table.dequeueReusableCell(withIdentifier: AnimalTableViewCell.idetifier, for: indexPath) as! AnimalTableViewCell
-        cell.setupModel(model: .init(text: self.model[indexPath.row]))
+        cell.setupModel(with: .init(text: self.model[indexPath.row]))
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.model.count
+        model.count
     }
     
     private func setupTable() {
-        self.table.translatesAutoresizingMaskIntoConstraints = false
-        let safeGuide = self.safeAreaLayoutGuide
-        self.addSubview(table)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        let safeGuide = safeAreaLayoutGuide
+        addSubview(table)
         table.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 30).isActive = true
-        self.constraint = table.heightAnchor.constraint(equalToConstant: 1000)
+        constraint = table.heightAnchor.constraint(equalToConstant: 600)
         constraint.isActive = true
         table.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 30).isActive = true
         table.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -30).isActive = true

@@ -8,7 +8,7 @@
 import Foundation
 
 struct DetailModel {
-    var taxonomy: AnimalTaxonomy
-    var locations: [String]
-    var characteristics: AnimalCharacteristics
+    let taxonomy: AnimalTaxonomy
+    let locations: [String]
+    let characteristics: AnimalCharacteristics
 }

@@ -7,24 +7,24 @@
 
 import Foundation
 
-class CharacteristicsViewModel {
+final class CharacteristicsViewModel {
     
-    var model: AnimalCharacteristics
-    var array: [String] = []
-    var giveArray: (([String]) -> ())?
+    private let model: AnimalCharacteristics
+    private var array: [String] = []
+    var loadData: (([String]) -> ())?
     
     init(model: AnimalCharacteristics) {
         self.model = model
     }
     
-    func makeArray() {
+    func viewDidLoad() {
         let mirror = Mirror(reflecting: model)
         mirror.children.forEach { child in
             if child.value is String {
                 guard let label = child.label else {return}
                 array.append("\(String(describing: label)): \(child.value as! String)")
             }
-            self.giveArray?(array)
+            self.loadData?(array)
         }
     }
 }

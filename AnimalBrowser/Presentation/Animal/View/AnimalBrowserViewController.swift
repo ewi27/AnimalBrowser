@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AnimalBrowserViewController.swift
 //  AnimalBrowser
 //
 //  Created by Ewelina on 12/06/2023.
@@ -7,12 +7,13 @@
 
 import UIKit
 
-class AnimalBrowseViewController: UIViewController {
+final class AnimalBrowserViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchTextField.backgroundColor = .gray
         searchBar.barTintColor = .lightGray
+        searchBar.placeholder = "ANIMAL"
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -58,7 +59,7 @@ class AnimalBrowseViewController: UIViewController {
         self.viewModel.giveSections = { [weak self] sections in
             self?.sections = sections
         }
-        self.viewModel.giveDetailSections = { [weak self] model in
+        self.viewModel.giveDetailSections = { [weak self] model in // TODO: to jest bardziej prezentacja ekranu niz przekazywanie czegos, nazwalbym to presentDetailScreen np
             let viewModel = AnimalDetailViewModel(model: (.init( taxonomy: model.taxonomy, locations: model.locations, characteristics: model.characteristics)))
             let viewController = AnimalDetailViewController(viewModel: viewModel)
             self?.navigationController?.pushViewController(viewController, animated: true)
@@ -82,7 +83,7 @@ class AnimalBrowseViewController: UIViewController {
     }
 }
 
-extension AnimalBrowseViewController: UITableViewDataSource {
+extension AnimalBrowserViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sections[section].cellCount
@@ -97,14 +98,13 @@ extension AnimalBrowseViewController: UITableViewDataSource {
         switch sections[indexPath.section] {
         case .animalName(let names):
             let model = AnimalCellModel(text: names[indexPath.row])
-            cell.setupModel(model: model)
+            cell.setupModel(with: model)
             return cell
         }
     }
-    
 }
 
-extension AnimalBrowseViewController: UITableViewDelegate {
+extension AnimalBrowserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         70
     }
@@ -113,19 +113,20 @@ extension AnimalBrowseViewController: UITableViewDelegate {
         sections[section].sectionTitle
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel.pressName(section: indexPath.section, row: indexPath.row)
+        viewModel.pressName(section: indexPath.section, row: indexPath.row)
     }
 }
 
-extension AnimalBrowseViewController: UISearchBarDelegate {
-    
+extension AnimalBrowserViewController: UISearchBarDelegate {
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.clearTable()
         guard let text = searchBar.text else { return }
-        self.viewModel.didSearch(query: text)
+        viewModel.didSearch(query: text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
     }
 }

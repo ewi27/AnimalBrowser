@@ -26,11 +26,11 @@ enum AnimalDetailSectionList {
     
     var sectionTitle: String {
         switch self {
-        case .taxonomy(_):
+        case .taxonomy:
             return "TAXONOMY"
-        case .locations(_):
+        case .locations:
             return "LOCATIONS"
-        case .characteristics(_):
+        case .characteristics:
             return "CHARACTERISTICS"
         }
     }

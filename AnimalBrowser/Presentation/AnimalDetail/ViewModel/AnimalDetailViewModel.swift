@@ -7,10 +7,10 @@
 
 import Foundation
 
-class AnimalDetailViewModel {
+final class AnimalDetailViewModel {
     
-    var model: DetailModel
-    var sectionsList: [AnimalDetailSectionList] = [AnimalDetailSectionList]()
+    private let model: DetailModel
+    private var sectionsList: [AnimalDetailSectionList] = [AnimalDetailSectionList]()
     var giveTaxonomy: ((AnimalTaxonomy) -> ())?
     var giveCharacteristics: ((AnimalCharacteristics) -> ())?
     
@@ -19,29 +19,29 @@ class AnimalDetailViewModel {
     }
     
     func makeSections() -> [AnimalDetailSectionList] {
-        self.sectionsList.append(.taxonomy("Click Taxonomy"))
-        self.sectionsList.append(.locations(model.locations))
-        self.sectionsList.append(.characteristics("Click Characteristics"))
+        sectionsList.append(.taxonomy("Click Taxonomy"))
+        sectionsList.append(.locations(model.locations))
+        sectionsList.append(.characteristics("Click Characteristics"))
         return sectionsList
     }
     
     func numberOfSections() -> Int {
-        self.sectionsList.count
+        sectionsList.count
     }
     
     func numberOfCell(at section: Int) -> Int {
-        self.sectionsList[section].cellCount
+        sectionsList[section].cellCount
     }
     
     func sectionsTitle(at section: Int) -> String {
-        self.sectionsList[section].sectionTitle
+        sectionsList[section].sectionTitle
     }
     
     func pressTaxonomy() {
-        self.giveTaxonomy?(model.taxonomy)
+        giveTaxonomy?(model.taxonomy)
     }
     
     func pressCharacteristics() {
-        self.giveCharacteristics?(model.characteristics)
+        giveCharacteristics?(model.characteristics)
     }
 }

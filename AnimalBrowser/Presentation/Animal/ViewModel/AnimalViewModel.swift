@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AnimalViewModel {
+final class AnimalViewModel {
     
     private var fetchAnimalInfoUseCase: FetchAnimalInfoUseCase
     var sectionsList: [AnimalSectionList] = [AnimalSectionList]() {
@@ -28,20 +28,24 @@ class AnimalViewModel {
         self.fetchAnimalInfoUseCase = fetchAnimalInfoUseCase
     }
     
-    func didSearch(query: String){
-            self.startActivityIndicator?()
-            fetchData(query: AnimalQuery(query: query))
+    func didSearch(query: String) {
+        startActivityIndicator?()
+        fetchData(query: AnimalQuery(query: query))
     }
     
     func pressName(section: Int, row: Int) {
-        switch self.sectionsList[section] {
-        case .animalName(_):
-            self.giveDetailSections?(detailModel[row])
+        switch sectionsList[section] {
+        case .animalName:
+            giveDetailSections?(detailModel[row])
         }
     }
     
+    func clearTable() {
+        sectionsList.removeAll()
+    }
+    
     private func fetchData(query: AnimalQuery) {
-        self.fetchAnimalInfoUseCase.execute(query: query) { result in
+        fetchAnimalInfoUseCase.execute(query: query) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
@@ -56,11 +60,11 @@ class AnimalViewModel {
     
     private func setupSections(model: Animal) {
         let names = model.map { $0.name }
-        self.sectionsList.append(.animalName(names))
+        sectionsList.append(.animalName(names))
     }
     
     private func setupDetailSections(model: Animal) {
-        self.detailModel = model.map { element in
+        detailModel = model.map { element in
             DetailModel.init(taxonomy: element.taxonomy, locations: element.locations, characteristics: element.characteristics)
         }
     }
