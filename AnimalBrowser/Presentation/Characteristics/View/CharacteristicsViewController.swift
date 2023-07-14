@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacteristicsViewController: UIViewController {
+final class CharacteristicsViewController: UIViewController {
     
     private var viewModel: CharacteristicsViewModel
     private let characteristicsView = CharacteristicsView()
@@ -24,14 +24,14 @@ class CharacteristicsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = characteristicsView
-        self.viewModel.giveArray = { [weak self] array in
+        viewModel.loadData = { [weak self] array in
             self?.characteristicsView.fillTable(model: array)
         }
-        self.viewModel.makeArray()
+        viewModel.viewDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.characteristicsView.updateTableConstraints()
+        characteristicsView.updateTableConstraints()
     }
 }

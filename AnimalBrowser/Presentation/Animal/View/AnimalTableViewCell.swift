@@ -23,6 +23,8 @@ class AnimalTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .gray
+        selectionStyle = .none
         setupConstraints()
     }
     
@@ -30,15 +32,15 @@ class AnimalTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupModel(model: AnimalCellModel) {
-        self.animalInfoLabel.text = model.text
+    func setupModel(with model: AnimalCellModel) {
+        animalInfoLabel.text = model.text
     }
     
     private func setupConstraints() {
         contentView.addSubview(animalInfoLabel)
-        animalInfoLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        animalInfoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        animalInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        animalInfoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        animalInfoLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
+        animalInfoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
+        animalInfoLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+        animalInfoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
     }
 }

@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TaxonomyViewController: UIViewController {
+final class TaxonomyViewController: UIViewController {
     
-    private var viewModel: TaxonomyViewModel
+    private let viewModel: TaxonomyViewModel
     private let taxonomyView = TaxonomyView()
     
     init(viewModel: TaxonomyViewModel) {
@@ -24,9 +24,9 @@ class TaxonomyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view = taxonomyView
-        self.viewModel.update = { model in
+        viewModel.update = { model in
             self.taxonomyView.fill(with: model)
         }
-        self.viewModel.viewDidLoad()
+        viewModel.viewDidLoad()
     }
 }

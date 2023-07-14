@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TaxonomyViewModel {
+final class TaxonomyViewModel {
     
     private var model: AnimalTaxonomy
     var update: ((TaxonomyView.Model) -> ())?
@@ -20,7 +20,14 @@ class TaxonomyViewModel {
         self.update?(prepareTaxonomy(model: model))
     }
     
-    func prepareTaxonomy(model: AnimalTaxonomy) -> TaxonomyView.Model {
-        return .init(kingdomText: model.kingdom, phylumText: model.phylum, taxonomyClassText: model.taxonomyClass, orderText: model.order, familyText: model.family, genusText: model.genus, scientificNameText: model.scientificName)
+    private func prepareTaxonomy(model: AnimalTaxonomy) -> TaxonomyView.Model {
+        return .init(
+            kingdomText: model.kingdom,
+            phylumText: model.phylum,
+            taxonomyClassText: model.taxonomyClass,
+            orderText: model.order,
+            familyText: model.family,
+            genusText: model.genus,
+            scientificNameText: model.scientificName)
     }
 }
