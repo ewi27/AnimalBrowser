@@ -11,10 +11,11 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
     
     private var model: [String] = []
     private var constraint = NSLayoutConstraint()
-    private let table: UITableView = {
-        let table = UITableView()
+    private let table: SelfSizingTableView = {
+        let table = SelfSizingTableView()
         table.register(AnimalTableViewCell.self, forCellReuseIdentifier: AnimalTableViewCell.idetifier)
         table.rowHeight = 100
+        table.bounces = false
         return table
     }()
     
@@ -26,6 +27,8 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
         setupTable()
         table.layer.cornerRadius = 25
         table.layer.masksToBounds = true
+        
+//        updateTableConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -37,9 +40,9 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
     }
     
     func updateTableConstraints() {
-            constraint.isActive = false
-            constraint = table.heightAnchor.constraint(equalToConstant: table.contentSize.height)
-            constraint.isActive = true
+//            constraint.isActive = false
+//            constraint = table.heightAnchor.constraint(equalToConstant: table.contentSize.height)
+//            constraint.isActive = true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,9 +60,23 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
         let safeGuide = safeAreaLayoutGuide
         addSubview(table)
         table.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 30).isActive = true
-        constraint = table.heightAnchor.constraint(equalToConstant: 600)
-        constraint.isActive = true
         table.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 30).isActive = true
         table.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -30).isActive = true
+        table.bottomAnchor.constraint(lessThanOrEqualTo: safeGuide.bottomAnchor).isActive = true
+    }
+}
+
+
+class SelfSizingTableView: UITableView {
+    override var contentSize: CGSize {
+        didSet {
+            invalidateIntrinsicContentSize()
+            setNeedsLayout()
+        }
+    }
+
+    override var intrinsicContentSize: CGSize {
+        let height = min(.infinity, contentSize.height)
+        return CGSize(width: contentSize.width, height: height)
     }
 }

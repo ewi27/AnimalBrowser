@@ -25,7 +25,8 @@ class DefaultAnimalRepository: AnimalRepository {
             switch result {
             case .success(let model):
                 completion(.success(model.mapToDomain()))
-            case .failure(let error): print(error)
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

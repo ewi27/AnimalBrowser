@@ -12,7 +12,6 @@ protocol MakeEndpoint {
 }
 
 struct AnimalAPIEndpoint: MakeEndpoint {
-    
     func makeEndpoint(requestQuery: AnimalRequestQuery) -> Endpoint {
         return .init(baseUrl: AnimalRequestPaths.baseUrl,
                      path: AnimalRequestPaths.path,

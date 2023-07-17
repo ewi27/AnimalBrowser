@@ -20,9 +20,10 @@ final class AnimalViewModel {
     var detailModel: [DetailModel] = [DetailModel]()
     var reloadData: (() -> ())?
     var giveSections: (([AnimalSectionList]) -> ())?
-    var giveDetailSections: ((DetailModel) -> ())?
+    var presentDetailScreen: ((DetailModel) -> ())?
     var startActivityIndicator: (() -> ())?
     var stopActivityIndicator: (() -> ())?
+    var giveError: ((String) -> ())?
     
     init(fetchAnimalInfoUseCase: FetchAnimalInfoUseCase = DefaultFetchAnimalInfoUseCase()) {
         self.fetchAnimalInfoUseCase = fetchAnimalInfoUseCase
@@ -36,7 +37,7 @@ final class AnimalViewModel {
     func pressName(section: Int, row: Int) {
         switch sectionsList[section] {
         case .animalName:
-            giveDetailSections?(detailModel[row])
+            presentDetailScreen?(detailModel[row])
         }
     }
     
@@ -49,10 +50,15 @@ final class AnimalViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
+                    if model.isEmpty {
+                        self.giveError?("Searched word doesn't exist")
+                    }
                     self.setupSections(model: model)
                     self.setupDetailSections(model: model)
                     self.stopActivityIndicator?()
-                case .failure(let error): print(error)
+                case .failure(let error):
+                    self.stopActivityIndicator?()
+                    self.giveError?(error.localizedDescription)
                 }
             }
         }
