@@ -59,10 +59,17 @@ final class AnimalBrowserViewController: UIViewController {
         self.viewModel.giveSections = { [weak self] sections in
             self?.sections = sections
         }
-        self.viewModel.giveDetailSections = { [weak self] model in // TODO: to jest bardziej prezentacja ekranu niz przekazywanie czegos, nazwalbym to presentDetailScreen np
+        self.viewModel.presentDetailScreen = { [weak self] model in
             let viewModel = AnimalDetailViewModel(model: (.init( taxonomy: model.taxonomy, locations: model.locations, characteristics: model.characteristics)))
             let viewController = AnimalDetailViewController(viewModel: viewModel)
             self?.navigationController?.pushViewController(viewController, animated: true)
+        }
+        self.viewModel.giveError = { error in
+            let alert = UIAlertController(title: "ERROR", message: error , preferredStyle: .alert)
+            alert.view.tintColor = UIColor().lightPink()
+            let cancelAction = UIAlertAction(title: "CANCEL", style: .cancel)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -119,7 +126,7 @@ extension AnimalBrowserViewController: UITableViewDelegate {
 }
 
 extension AnimalBrowserViewController: UISearchBarDelegate {
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.clearTable()
         guard let text = searchBar.text else { return }

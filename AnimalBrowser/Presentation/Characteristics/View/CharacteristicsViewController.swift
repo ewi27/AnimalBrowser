@@ -29,9 +29,4 @@ final class CharacteristicsViewController: UIViewController {
         }
         viewModel.viewDidLoad()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        characteristicsView.updateTableConstraints()
-    }
 }
