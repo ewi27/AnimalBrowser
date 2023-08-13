@@ -32,6 +32,7 @@ final class AnimalBrowserViewController: UIViewController {
     }()
     private let viewModel = AnimalViewModel()
     private var sections: [AnimalSectionList] = [AnimalSectionList]()
+    private let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ final class AnimalBrowserViewController: UIViewController {
         searchBar.delegate = self
         setupConstraints()
         setupViewModel()
+        print(AnimalQueriesCell.reuseIdentifier)
     }
     
     private func setupViewModel() {
@@ -87,6 +89,11 @@ final class AnimalBrowserViewController: UIViewController {
         animalTableView.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: safeGuide.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: safeGuide.centerYAnchor).isActive = true
+    }
+    
+    func setupSearchController() {
+        searchController.delegate = self
+        
     }
 }
 
@@ -136,4 +143,8 @@ extension AnimalBrowserViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
     }
+}
+
+extension AnimalBrowserViewController: UISearchControllerDelegate {
+    
 }
