@@ -13,14 +13,20 @@ protocol FetchAnimalInfoUseCase {
 final class DefaultFetchAnimalInfoUseCase: FetchAnimalInfoUseCase {
     
     private let animalRepository: AnimalRepository
+    private let animalQueriesRepository: AnimalQueryRepository
     
-    init(animalRepository: AnimalRepository = DefaultAnimalRepository()) {
+    init(animalRepository: AnimalRepository = DefaultAnimalRepository(), animalQueriesRepository: AnimalQueryRepository = DefaultAnimalQueryRepository() ) {
         self.animalRepository = animalRepository
+        self.animalQueriesRepository = animalQueriesRepository
     }
     
     func execute(query: AnimalQuery,
                  completion: @escaping (Result<Animal, Error>) -> ()?) {
-        animalRepository.fetchAnimalInfo(query: query, completion: completion)
+        animalRepository.fetchAnimalInfo(query: query, completion: { result in
+            if case .success = result {
+                self.animalQueriesRepository.saveQuery(query: query)  { _ in }
+            }
+            completion(result)
+        })
     }
 }
-

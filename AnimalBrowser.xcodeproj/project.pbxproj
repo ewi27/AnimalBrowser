@@ -16,7 +16,7 @@
 		C93BEFFD2A378396007F7C39 /* AnimalBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFFC2A378396007F7C39 /* AnimalBrowserUITests.swift */; };
 		C93BEFFF2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFFE2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift */; };
 		C93BF0122A378DFE007F7C39 /* AnimalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0112A378DFE007F7C39 /* AnimalRepository.swift */; };
-		C93BF0142A378E3C007F7C39 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0132A378E3C007F7C39 /* UseCases.swift */; };
+		C93BF0142A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0132A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift */; };
 		C93BF0192A378F3D007F7C39 /* AnimalQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */; };
 		C93BF01B2A378FA7007F7C39 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF01A2A378FA7007F7C39 /* Animal.swift */; };
 		C9684F902A3B06090008790C /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684F8F2A3B06080008790C /* AnimalTableViewCell.swift */; };
@@ -42,6 +42,17 @@
 		C9684FCA2A40BCC50008790C /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FC92A40BCC50008790C /* APIEndpoint.swift */; };
 		C9684FCC2A5481980008790C /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FCB2A5481980008790C /* DetailModel.swift */; };
 		C9684FCF2A59E69A0008790C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FCE2A59E69A0008790C /* Color.swift */; };
+		C9684FD22A66E0FE0008790C /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9684FD02A66E0FE0008790C /* CoreDataStorage.xcdatamodeld */; };
+		C9684FD62A66E1600008790C /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FD52A66E1600008790C /* CoreDataStorage.swift */; };
+		C9684FD82A66E6CB0008790C /* AnimalQueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FD72A66E6CB0008790C /* AnimalQueryRepository.swift */; };
+		C9684FDC2A6D48C70008790C /* DefaultAnimalQueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FDB2A6D48C70008790C /* DefaultAnimalQueryRepository.swift */; };
+		C9684FDE2A6D4B3E0008790C /* AnimalQueryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FDD2A6D4B3E0008790C /* AnimalQueryStorage.swift */; };
+		C9684FE02A6D55E60008790C /* DataMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FDF2A6D55E60008790C /* DataMapping.swift */; };
+		C9684FE22A7C06A80008790C /* FetchAnimalQueriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FE12A7C06A80008790C /* FetchAnimalQueriesUseCase.swift */; };
+		C9684FEA2A8661F30008790C /* AnimalQueriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FE92A8661F30008790C /* AnimalQueriesTableViewController.swift */; };
+		C9684FEC2A8662850008790C /* AnimalQueriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FEB2A8662850008790C /* AnimalQueriesListViewModel.swift */; };
+		C9684FEE2A8797B00008790C /* TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9684FED2A8797B00008790C /* TableView.storyboard */; };
+		C9684FF02A87A7B30008790C /* AnimalQueriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FEF2A87A7B30008790C /* AnimalQueriesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +86,7 @@
 		C93BEFFC2A378396007F7C39 /* AnimalBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBrowserUITests.swift; sourceTree = "<group>"; };
 		C93BEFFE2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBrowserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C93BF0112A378DFE007F7C39 /* AnimalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRepository.swift; sourceTree = "<group>"; };
-		C93BF0132A378E3C007F7C39 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
+		C93BF0132A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalInfoUseCase.swift; sourceTree = "<group>"; };
 		C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQuery.swift; sourceTree = "<group>"; };
 		C93BF01A2A378FA7007F7C39 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		C9684F8F2A3B06080008790C /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +112,17 @@
 		C9684FC92A40BCC50008790C /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		C9684FCB2A5481980008790C /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		C9684FCE2A59E69A0008790C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C9684FD12A66E0FE0008790C /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
+		C9684FD52A66E1600008790C /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		C9684FD72A66E6CB0008790C /* AnimalQueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueryRepository.swift; sourceTree = "<group>"; };
+		C9684FDB2A6D48C70008790C /* DefaultAnimalQueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAnimalQueryRepository.swift; sourceTree = "<group>"; };
+		C9684FDD2A6D4B3E0008790C /* AnimalQueryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueryStorage.swift; sourceTree = "<group>"; };
+		C9684FDF2A6D55E60008790C /* DataMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapping.swift; sourceTree = "<group>"; };
+		C9684FE12A7C06A80008790C /* FetchAnimalQueriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalQueriesUseCase.swift; sourceTree = "<group>"; };
+		C9684FE92A8661F30008790C /* AnimalQueriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesTableViewController.swift; sourceTree = "<group>"; };
+		C9684FEB2A8662850008790C /* AnimalQueriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesListViewModel.swift; sourceTree = "<group>"; };
+		C9684FED2A8797B00008790C /* TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableView.storyboard; sourceTree = "<group>"; };
+		C9684FEF2A87A7B30008790C /* AnimalQueriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				C9684F9A2A3B2FDA0008790C /* Repository */,
-				C9684FC82A40BCA50008790C /* EndpointMaking */,
-				C9684FC12A3F3FB40008790C /* DataMapping */,
+				C9684FD32A66E11D0008790C /* PersistentStorage */,
+				C9684FD42A66E12A0008790C /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -214,6 +236,7 @@
 			children = (
 				C9684FCD2A59E6580008790C /* Utility */,
 				C9684F932A3B0E5B0008790C /* Animal */,
+				C9684FE62A86619E0008790C /* AnimalQueriesList */,
 				C9684F9D2A3B310B0008790C /* AnimalDetail */,
 				C9684FA22A3B327C0008790C /* Taxonomy */,
 				C9684FA32A3B32840008790C /* Characteristics */,
@@ -224,8 +247,8 @@
 		C93BF0152A378E7A007F7C39 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */,
 				C93BF01A2A378FA7007F7C39 /* Animal.swift */,
+				C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -234,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				C93BF0112A378DFE007F7C39 /* AnimalRepository.swift */,
+				C9684FD72A66E6CB0008790C /* AnimalQueryRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -241,7 +265,8 @@
 		C93BF0172A378E8D007F7C39 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				C93BF0132A378E3C007F7C39 /* UseCases.swift */,
+				C93BF0132A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift */,
+				C9684FE12A7C06A80008790C /* FetchAnimalQueriesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -278,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				C9684F9B2A3B2FEE0008790C /* DefaultAnimalRepository.swift */,
+				C9684FDB2A6D48C70008790C /* DefaultAnimalQueryRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -391,6 +417,7 @@
 		C9684FC82A40BCA50008790C /* EndpointMaking */ = {
 			isa = PBXGroup;
 			children = (
+				C9684FC12A3F3FB40008790C /* DataMapping */,
 				C9684FC62A3F55F40008790C /* AnimalEndpointPaths.swift */,
 				C9684FC92A40BCC50008790C /* APIEndpoint.swift */,
 			);
@@ -403,6 +430,52 @@
 				C9684FCE2A59E69A0008790C /* Color.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		C9684FD32A66E11D0008790C /* PersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C9684FDD2A6D4B3E0008790C /* AnimalQueryStorage.swift */,
+				C9684FD52A66E1600008790C /* CoreDataStorage.swift */,
+				C9684FDF2A6D55E60008790C /* DataMapping.swift */,
+				C9684FD02A66E0FE0008790C /* CoreDataStorage.xcdatamodeld */,
+			);
+			path = PersistentStorage;
+			sourceTree = "<group>";
+		};
+		C9684FD42A66E12A0008790C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C9684FC82A40BCA50008790C /* EndpointMaking */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C9684FE62A86619E0008790C /* AnimalQueriesList */ = {
+			isa = PBXGroup;
+			children = (
+				C9684FE82A8661D00008790C /* ViewModel */,
+				C9684FE72A8661BF0008790C /* View */,
+			);
+			path = AnimalQueriesList;
+			sourceTree = "<group>";
+		};
+		C9684FE72A8661BF0008790C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C9684FE92A8661F30008790C /* AnimalQueriesTableViewController.swift */,
+				C9684FED2A8797B00008790C /* TableView.storyboard */,
+				C9684FEF2A87A7B30008790C /* AnimalQueriesCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9684FE82A8661D00008790C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C9684FEB2A8662850008790C /* AnimalQueriesListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,6 +582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9684FEE2A8797B00008790C /* TableView.storyboard in Resources */,
 				C93BEFE82A378396007F7C39 /* LaunchScreen.storyboard in Resources */,
 				C93BEFE52A378396007F7C39 /* Assets.xcassets in Resources */,
 			);
@@ -539,22 +613,29 @@
 				C93BEFE02A378394007F7C39 /* AnimalBrowserViewController.swift in Sources */,
 				C9684FB12A3B33EA0008790C /* CharacteristicsViewController.swift in Sources */,
 				C9684F902A3B06090008790C /* AnimalTableViewCell.swift in Sources */,
-				C93BF0142A378E3C007F7C39 /* UseCases.swift in Sources */,
+				C93BF0142A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift in Sources */,
 				C9684FC32A3F40AC0008790C /* AnimalRequestQuery.swift in Sources */,
+				C9684FE02A6D55E60008790C /* DataMapping.swift in Sources */,
 				C9684FA72A3B33840008790C /* TaxonomyView.swift in Sources */,
 				C9684FCA2A40BCC50008790C /* APIEndpoint.swift in Sources */,
 				C9684F9C2A3B2FEE0008790C /* DefaultAnimalRepository.swift in Sources */,
 				C9684FBE2A3C5DD80008790C /* AnimalModel.swift in Sources */,
 				C9684FB72A3B356F0008790C /* AnimalDetailSectionList.swift in Sources */,
 				C9684F972A3B0EC00008790C /* AnimalSectionList.swift in Sources */,
+				C9684FD62A66E1600008790C /* CoreDataStorage.swift in Sources */,
 				C9684FC72A3F55F40008790C /* AnimalEndpointPaths.swift in Sources */,
+				C9684FD82A66E6CB0008790C /* AnimalQueryRepository.swift in Sources */,
 				C9684FB32A3B33FB0008790C /* CharacteristicsViewModel.swift in Sources */,
 				C93BEFDC2A378394007F7C39 /* AppDelegate.swift in Sources */,
 				C9684F992A3B102D0008790C /* AnimalViewModel.swift in Sources */,
+				C9684FDC2A6D48C70008790C /* DefaultAnimalQueryRepository.swift in Sources */,
 				C9684F922A3B0CC40008790C /* AnimalCellModel.swift in Sources */,
+				C9684FDE2A6D4B3E0008790C /* AnimalQueryStorage.swift in Sources */,
+				C9684FE22A7C06A80008790C /* FetchAnimalQueriesUseCase.swift in Sources */,
 				C9684FAF2A3B33D40008790C /* CharacteristicsView.swift in Sources */,
 				C9684FA92A3B33990008790C /* TaxonomyViewController.swift in Sources */,
 				C93BF0122A378DFE007F7C39 /* AnimalRepository.swift in Sources */,
+				C9684FF02A87A7B30008790C /* AnimalQueriesCell.swift in Sources */,
 				C93BF01B2A378FA7007F7C39 /* Animal.swift in Sources */,
 				C9684FCC2A5481980008790C /* DetailModel.swift in Sources */,
 				C9684FB52A3B34F30008790C /* AnimalDetailViewModel.swift in Sources */,
@@ -564,7 +645,10 @@
 				C9684FAB2A3B33A70008790C /* TaxonomyViewModel.swift in Sources */,
 				C93BEFDE2A378394007F7C39 /* SceneDelegate.swift in Sources */,
 				C9684FA12A3B31950008790C /* AnimalDetailViewController.swift in Sources */,
+				C9684FD22A66E0FE0008790C /* CoreDataStorage.xcdatamodeld in Sources */,
+				C9684FEA2A8661F30008790C /* AnimalQueriesTableViewController.swift in Sources */,
 				C9684FC02A3CC5B50008790C /* Endpoint.swift in Sources */,
+				C9684FEC2A8662850008790C /* AnimalQueriesListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,6 +974,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C9684FD02A66E0FE0008790C /* CoreDataStorage.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C9684FD12A66E0FE0008790C /* CoreDataStorage.xcdatamodel */,
+			);
+			currentVersion = C9684FD12A66E0FE0008790C /* CoreDataStorage.xcdatamodel */;
+			path = CoreDataStorage.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C93BEFD02A378394007F7C39 /* Project object */;
 }
