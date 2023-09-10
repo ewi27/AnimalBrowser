@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C93BEFDC2A378394007F7C39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDB2A378394007F7C39 /* AppDelegate.swift */; };
 		C93BEFDE2A378394007F7C39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDD2A378394007F7C39 /* SceneDelegate.swift */; };
-		C93BEFE02A378394007F7C39 /* AnimalBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDF2A378394007F7C39 /* AnimalBrowserViewController.swift */; };
+		C93BEFE02A378394007F7C39 /* AnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDF2A378394007F7C39 /* AnimalListViewController.swift */; };
 		C93BEFE52A378396007F7C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93BEFE42A378396007F7C39 /* Assets.xcassets */; };
 		C93BEFE82A378396007F7C39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93BEFE62A378396007F7C39 /* LaunchScreen.storyboard */; };
 		C93BEFF32A378396007F7C39 /* AnimalBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFF22A378396007F7C39 /* AnimalBrowserTests.swift */; };
@@ -53,6 +53,9 @@
 		C9684FEC2A8662850008790C /* AnimalQueriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FEB2A8662850008790C /* AnimalQueriesListViewModel.swift */; };
 		C9684FEE2A8797B00008790C /* TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9684FED2A8797B00008790C /* TableView.storyboard */; };
 		C9684FF02A87A7B30008790C /* AnimalQueriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FEF2A87A7B30008790C /* AnimalQueriesCell.swift */; };
+		C9684FF22A893AE10008790C /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FF12A893AE10008790C /* AppFlowCoordinator.swift */; };
+		C9684FF52A8A2CE60008790C /* AnimalFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FF42A8A2CE60008790C /* AnimalFlowCoordinator.swift */; };
+		C9684FF92A8B97F50008790C /* AnimalViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FF82A8B97F50008790C /* AnimalViewControllersFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +79,7 @@
 		C93BEFD82A378394007F7C39 /* AnimalBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93BEFDB2A378394007F7C39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C93BEFDD2A378394007F7C39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C93BEFDF2A378394007F7C39 /* AnimalBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBrowserViewController.swift; sourceTree = "<group>"; };
+		C93BEFDF2A378394007F7C39 /* AnimalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListViewController.swift; sourceTree = "<group>"; };
 		C93BEFE42A378396007F7C39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C93BEFE72A378396007F7C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C93BEFE92A378396007F7C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +126,9 @@
 		C9684FEB2A8662850008790C /* AnimalQueriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesListViewModel.swift; sourceTree = "<group>"; };
 		C9684FED2A8797B00008790C /* TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableView.storyboard; sourceTree = "<group>"; };
 		C9684FEF2A87A7B30008790C /* AnimalQueriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesCell.swift; sourceTree = "<group>"; };
+		C9684FF12A893AE10008790C /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
+		C9684FF42A8A2CE60008790C /* AnimalFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFlowCoordinator.swift; sourceTree = "<group>"; };
+		C9684FF82A8B97F50008790C /* AnimalViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewControllersFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,8 @@
 			children = (
 				C93BEFDB2A378394007F7C39 /* AppDelegate.swift */,
 				C93BEFDD2A378394007F7C39 /* SceneDelegate.swift */,
+				C9684FF12A893AE10008790C /* AppFlowCoordinator.swift */,
+				C9684FF82A8B97F50008790C /* AnimalViewControllersFactory.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -234,6 +242,7 @@
 		C93BF00E2A378723007F7C39 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C9684FF32A8A2CCE0008790C /* Flow */,
 				C9684FCD2A59E6580008790C /* Utility */,
 				C9684F932A3B0E5B0008790C /* Animal */,
 				C9684FE62A86619E0008790C /* AnimalQueriesList */,
@@ -283,7 +292,7 @@
 		C9684F942A3B0E710008790C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C93BEFDF2A378394007F7C39 /* AnimalBrowserViewController.swift */,
+				C93BEFDF2A378394007F7C39 /* AnimalListViewController.swift */,
 				C9684F8F2A3B06080008790C /* AnimalTableViewCell.swift */,
 				C9684F912A3B0CC40008790C /* AnimalCellModel.swift */,
 				C9684F962A3B0EC00008790C /* AnimalSectionList.swift */,
@@ -478,6 +487,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C9684FF32A8A2CCE0008790C /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				C9684FF42A8A2CE60008790C /* AnimalFlowCoordinator.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -610,9 +627,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9684FB92A3C5B2B0008790C /* NetworkService.swift in Sources */,
-				C93BEFE02A378394007F7C39 /* AnimalBrowserViewController.swift in Sources */,
+				C93BEFE02A378394007F7C39 /* AnimalListViewController.swift in Sources */,
 				C9684FB12A3B33EA0008790C /* CharacteristicsViewController.swift in Sources */,
 				C9684F902A3B06090008790C /* AnimalTableViewCell.swift in Sources */,
+				C9684FF92A8B97F50008790C /* AnimalViewControllersFactory.swift in Sources */,
 				C93BF0142A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift in Sources */,
 				C9684FC32A3F40AC0008790C /* AnimalRequestQuery.swift in Sources */,
 				C9684FE02A6D55E60008790C /* DataMapping.swift in Sources */,
@@ -632,6 +650,7 @@
 				C9684F922A3B0CC40008790C /* AnimalCellModel.swift in Sources */,
 				C9684FDE2A6D4B3E0008790C /* AnimalQueryStorage.swift in Sources */,
 				C9684FE22A7C06A80008790C /* FetchAnimalQueriesUseCase.swift in Sources */,
+				C9684FF22A893AE10008790C /* AppFlowCoordinator.swift in Sources */,
 				C9684FAF2A3B33D40008790C /* CharacteristicsView.swift in Sources */,
 				C9684FA92A3B33990008790C /* TaxonomyViewController.swift in Sources */,
 				C93BF0122A378DFE007F7C39 /* AnimalRepository.swift in Sources */,
@@ -646,6 +665,7 @@
 				C93BEFDE2A378394007F7C39 /* SceneDelegate.swift in Sources */,
 				C9684FA12A3B31950008790C /* AnimalDetailViewController.swift in Sources */,
 				C9684FD22A66E0FE0008790C /* CoreDataStorage.xcdatamodeld in Sources */,
+				C9684FF52A8A2CE60008790C /* AnimalFlowCoordinator.swift in Sources */,
 				C9684FEA2A8661F30008790C /* AnimalQueriesTableViewController.swift in Sources */,
 				C9684FC02A3CC5B50008790C /* Endpoint.swift in Sources */,
 				C9684FEC2A8662850008790C /* AnimalQueriesListViewModel.swift in Sources */,
@@ -746,7 +766,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -800,7 +820,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

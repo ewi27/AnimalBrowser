@@ -7,15 +7,22 @@
 
 import Foundation
 
+struct AnimalDetailViewModelActivities {
+    let showTaxonomy: (AnimalTaxonomy) -> Void?
+    let showCharacteristics: (AnimalCharacteristics) -> Void?
+}
+
 final class AnimalDetailViewModel {
     
+    private var actions: AnimalDetailViewModelActivities?
     private let model: DetailModel
     private var sectionsList: [AnimalDetailSectionList] = [AnimalDetailSectionList]()
-    var giveTaxonomy: ((AnimalTaxonomy) -> ())?
-    var giveCharacteristics: ((AnimalCharacteristics) -> ())?
+//    var giveTaxonomy: ((AnimalTaxonomy) -> ())?
+//    var giveCharacteristics: ((AnimalCharacteristics) -> ())?
     
-    init(model: DetailModel) {
+    init(model: DetailModel, actions: AnimalDetailViewModelActivities? = nil) {
         self.model = model
+        self.actions = actions
     }
     
     func makeSections() -> [AnimalDetailSectionList] {
@@ -38,10 +45,10 @@ final class AnimalDetailViewModel {
     }
     
     func pressTaxonomy() {
-        giveTaxonomy?(model.taxonomy)
+        actions?.showTaxonomy(model.taxonomy)
     }
     
     func pressCharacteristics() {
-        giveCharacteristics?(model.characteristics)
+        actions?.showCharacteristics(model.characteristics)
     }
 }
