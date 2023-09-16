@@ -10,7 +10,7 @@ import Foundation
 //dzialania informujace AnimalFlowCoordinator, kiedy wyswietlic inne widoki; struct zeby moc ew. dodac kolejne akcje
 struct AnimalViewModelActivities {
     let showAnimalDetails: (DetailModel) -> Void
-    let showAnimalQueriesList: () -> Void?
+    let showAnimalQueriesList: (@escaping (_ selectingAction: AnimalQuery) -> Void) -> Void
     let closeAnimalQueriesList: () -> Void?
 }
 
@@ -51,7 +51,7 @@ final class AnimalViewModel {
     }
     
     func showAnimalQueriesListVC() {
-        viewModelActivities?.showAnimalQueriesList()
+        viewModelActivities?.showAnimalQueriesList(tappedAnimalQuery(animalQuery:))
     }
     
     func closeAnimalQueriesListVC() {
@@ -60,6 +60,10 @@ final class AnimalViewModel {
     
     func clearTable() {
         sectionsList.removeAll()
+    }
+    
+    private func tappedAnimalQuery(animalQuery: AnimalQuery) {
+        fetchData(query: animalQuery)
     }
     
     private func fetchData(query: AnimalQuery) {

@@ -32,8 +32,17 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
         return AnimalDetailViewModel(model: detail, actions: actions)
     }
     
-    func makeAnimalQueriesViewController() -> UIViewController {
-        return AnimalQueriesTableViewController()
+    func makeAnimalQueriesViewController(selectingAction: @escaping (AnimalQuery) -> Void) -> UIViewController {
+//        let storyboard = UIStoryboard(name: "AnimalQueriesTableViewController", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "identifier") as! AnimalQueriesTableViewController(makeAnimalQueriesViewModel(selectingAction: selectingAction))
+        let vc = UIStoryboard(name: "AnimalQueriesStoryboard", bundle: nil).instantiateViewController(identifier: "storyboard") { coder in
+            return AnimalQueriesViewController(coder: coder, viewModel: self.makeAnimalQueriesViewModel(selectingAction: selectingAction))
+        }
+        return vc
+    }
+    
+    func makeAnimalQueriesViewModel(selectingAction: @escaping (AnimalQuery) -> Void) -> AnimalQueriesListViewModel {
+        return AnimalQueriesListViewModel(selectingAction: selectingAction)
     }
     
     func makeAnimalFlowCoordinator() -> AnimalFlowCoordinator {

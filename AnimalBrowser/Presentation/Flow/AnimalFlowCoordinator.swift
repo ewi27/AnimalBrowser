@@ -10,7 +10,7 @@ import UIKit
 protocol AnimalFlowCoordinatorDependencies {
     func makeAnimalViewController(actions: AnimalViewModelActivities) -> AnimalListViewController
     func makeAnimalDetailViewController(detail: DetailModel, actions: AnimalDetailViewModelActivities) -> UIViewController
-    func makeAnimalQueriesViewController() -> UIViewController
+    func makeAnimalQueriesViewController(selectingAction: @escaping (AnimalQuery) -> Void) -> UIViewController
 }
 
 protocol AnimalDetailFlowCoordinatorDependencies {
@@ -23,7 +23,7 @@ final class AnimalFlowCoordinator {
     private var navigationController: UINavigationController
     private var dependencies: AnimalFlowCoordinatorDependencies
     private var detailDependencies: AnimalDetailFlowCoordinatorDependencies
-    private var mainVC: UIViewController?
+    private var mainVC: AnimalListViewController?
     private var queriesListVC: UIViewController?
     
     init(navigationController: UINavigationController, dependencies: AnimalFlowCoordinatorDependencies, detailDependencies: AnimalDetailFlowCoordinatorDependencies) {
@@ -34,7 +34,7 @@ final class AnimalFlowCoordinator {
     
     func start() {
         let actions = AnimalViewModelActivities(showAnimalDetails: showAnimalDetails,
-                                                showAnimalQueriesList:showAnimalQueriesList,
+                                                showAnimalQueriesList: showAnimalQueriesList,
                                                 closeAnimalQueriesList: closeAnimalQueriesList
         )
         let vc = dependencies.makeAnimalViewController(actions: actions)
@@ -47,14 +47,23 @@ final class AnimalFlowCoordinator {
         self.navigationController.pushViewController(vc, animated: true)
     }
     
-    private func showAnimalQueriesList() {
-        let vc = dependencies.makeAnimalQueriesViewController()
+    private func showAnimalQueriesList(selecingAction: @escaping (AnimalQuery) -> Void) {
+        guard let moviesListViewController = mainVC else {return}
+        let container = moviesListViewController.queriesContainer
+        let vc = dependencies.makeAnimalQueriesViewController(selectingAction: selecingAction)
+        moviesListViewController.add(child: vc, container: container)
         queriesListVC = vc
-        self.navigationController.pushViewController(vc, animated: true)
+        if queriesListVC != nil {
+            print("nie jest nilek")
+        }
+        container.isHidden = false
     }
     
     private func closeAnimalQueriesList() {
+        queriesListVC?.removeFromParent()
+        queriesListVC?.view.removeFromSuperview()
         queriesListVC = nil
+        mainVC?.queriesContainer.isHidden = true
     }
     
     private func makeDetailActions() -> AnimalDetailViewModelActivities {
@@ -72,10 +81,4 @@ final class AnimalFlowCoordinator {
         let vc = detailDependencies.makeCharacteristicsViewController(model: model)
         self.navigationController.pushViewController(vc, animated: true)
     }
-    
-    private func showAnimalQueries() {
-        
-    }
-    
-    
 }

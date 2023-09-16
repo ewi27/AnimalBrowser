@@ -7,14 +7,6 @@
 
 import UIKit
 
-class Controlerek: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor().lightPink()
-    }
-}
-
 final class AnimalListViewController: UIViewController {
     
     private var viewModel: AnimalViewModel
@@ -38,25 +30,20 @@ final class AnimalListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.animalTableView.layer.cornerRadius = 25
-        self.animalTableView.layer.masksToBounds = true
         animalTableView.dataSource = self
         animalTableView.delegate = self
-        setupConstraints()
+        setupViews()
         setupViewModel()
-        setupSearchController()
-        if searchController.isActive {
-            print("IS ACTIVEEEEE")
-        } else {
-            print("NOT Activeeee")
-        }
     }
     
     init(viewModel: AnimalViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        print("INIT GLOWNY")
+    }
+    
+    deinit {
+        print("DEINIT GLOWNY")
     }
     
     required init?(coder: NSCoder) {
@@ -85,12 +72,22 @@ final class AnimalListViewController: UIViewController {
         }
     }
     
+    private func setupViews() {
+        view.backgroundColor = .lightGray
+        self.navigationController?.navigationBar.tintColor = .darkGray
+        self.animalTableView.layer.cornerRadius = 25
+        self.animalTableView.layer.masksToBounds = true
+        setupConstraints()
+        setupSearchController()
+    }
+    
     private func setupConstraints() {
         let safeGuide = view.safeAreaLayoutGuide
         view.addSubview(searchBarContainer)
         view.addSubview(animalTableView)
+       
         view.addSubview(activityIndicator)
-        queriesContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         searchBarContainer.translatesAutoresizingMaskIntoConstraints = false
         searchBarContainer.heightAnchor.constraint(equalToConstant: 50).isActive = true
         searchBarContainer.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 10).isActive = true
@@ -102,6 +99,14 @@ final class AnimalListViewController: UIViewController {
         animalTableView.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: safeGuide.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: safeGuide.centerYAnchor).isActive = true
+        queriesContainer.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(queriesContainer)
+        queriesContainer.isHidden = true
+        queriesContainer.backgroundColor = .lightGray
+        queriesContainer.topAnchor.constraint(equalTo: searchBarContainer.bottomAnchor, constant: 50).isActive = true
+        queriesContainer.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -50).isActive = true
+        queriesContainer.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 20).isActive = true
+        queriesContainer.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
     }
     
     private func setupSearchController() {
@@ -114,12 +119,6 @@ final class AnimalListViewController: UIViewController {
         searchController.searchBar.tintColor = UIColor().lightPink()
         searchController.searchBar.placeholder = viewModel.searchBarPlaceholderText
         searchBarContainer.addSubview(searchController.searchBar)
-        NSLayoutConstraint.activate([
-            searchController.searchBar.topAnchor.constraint(equalTo: searchBarContainer.topAnchor),
-            searchController.searchBar.leadingAnchor.constraint(equalTo: searchBarContainer.leadingAnchor),
-            searchController.searchBar.trailingAnchor.constraint(equalTo: searchBarContainer.trailingAnchor),
-            searchController.searchBar.bottomAnchor.constraint(equalTo: searchBarContainer.bottomAnchor)
-        ])
         definesPresentationContext = true
     }
 }
@@ -128,13 +127,6 @@ extension AnimalListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sections[section].cellCount
-        //        view.addSubview(queriesContainer)
-        //        queriesContainer.isHidden = true
-        //        queriesContainer.backgroundColor = .red
-        //        queriesContainer.topAnchor.constraint(equalTo: searchBarContainer.bottomAnchor).isActive = true
-        //        queriesContainer.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor).isActive = true
-        //        queriesContainer.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor).isActive = true
-        //        queriesContainer.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor).isActive = true
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -182,10 +174,29 @@ extension AnimalListViewController: UISearchBarDelegate {
 
 extension AnimalListViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
-          print("otwarcie")
+        viewModel.showAnimalQueriesListVC()
+      //  queriesContainer.isHidden = false
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
-          print("zamkniecie")
+        viewModel.closeAnimalQueriesListVC()
+       // queriesContainer.isHidden = true
       }
+}
+
+class Vcvc: UIViewController {
+    override func viewDidLoad() {
+         super.viewDidLoad()
+        view.backgroundColor = .red
+    }
+}
+
+extension UIViewController {
+    
+    func add(child: UIViewController, container: UIView) {
+        addChild(child)
+        child.view.frame = container.bounds
+        container.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
 }
