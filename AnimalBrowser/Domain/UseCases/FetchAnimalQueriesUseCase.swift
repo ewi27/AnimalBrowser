@@ -8,7 +8,8 @@
 import Foundation
 
 protocol FetchAnimalQueries {
-    func execute(completion: @escaping (Result<[AnimalQuery], Error>) -> Void)
+    func execute(queriesCount: Int,
+                 completion: @escaping (Result<[AnimalQuery], Error>) -> Void)
 }
 
 final class DefaultFetchAnimalQueriesUseCase: FetchAnimalQueries {
@@ -19,7 +20,7 @@ final class DefaultFetchAnimalQueriesUseCase: FetchAnimalQueries {
         self.queriesRepository = queriesRepository
     }
     
-    func execute(completion: @escaping (Result<[AnimalQuery], Error>) -> Void) {
-        queriesRepository.fetchQueries(completion: completion)
+    func execute(queriesCount: Int, completion: @escaping (Result<[AnimalQuery], Error>) -> Void) {
+        queriesRepository.fetchQueries(queriesCount: queriesCount, completion: completion)
     }
 }

@@ -20,12 +20,12 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
     }
     
     private func makeAnimalViewModel(actions: AnimalViewModelActivities) -> AnimalViewModel {
-       return AnimalViewModel(viewModelActivities: actions)
+        return AnimalViewModel(viewModelActivities: actions)
     }
     
     func makeAnimalDetailViewController(detail: DetailModel, actions: AnimalDetailViewModelActivities) -> UIViewController {
         AnimalDetailViewController(viewModel: makeDetailViewModel(detail: detail, actions: actions))
-      //  AnimalDetailViewController(viewModel: AnimalDetailViewModel(model: detail, actions: actions))
+        //  AnimalDetailViewController(viewModel: AnimalDetailViewModel(model: detail, actions: actions))
     }
     
     private func makeDetailViewModel(detail: DetailModel, actions: AnimalDetailViewModelActivities) -> AnimalDetailViewModel {
@@ -33,8 +33,6 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
     }
     
     func makeAnimalQueriesViewController(selectingAction: @escaping (AnimalQuery) -> Void) -> UIViewController {
-//        let storyboard = UIStoryboard(name: "AnimalQueriesTableViewController", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "identifier") as! AnimalQueriesTableViewController(makeAnimalQueriesViewModel(selectingAction: selectingAction))
         let vc = UIStoryboard(name: "AnimalQueriesStoryboard", bundle: nil).instantiateViewController(identifier: "storyboard") { coder in
             return AnimalQueriesViewController(coder: coder, viewModel: self.makeAnimalQueriesViewModel(selectingAction: selectingAction))
         }
@@ -42,7 +40,7 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
     }
     
     func makeAnimalQueriesViewModel(selectingAction: @escaping (AnimalQuery) -> Void) -> AnimalQueriesListViewModel {
-        return AnimalQueriesListViewModel(selectingAction: selectingAction)
+        return AnimalQueriesListViewModel(numberOfQueriesToShow: 10, selectingAction: selectingAction)
     }
     
     func makeAnimalFlowCoordinator() -> AnimalFlowCoordinator {
@@ -56,5 +54,4 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
     func makeCharacteristicsViewController(model: AnimalCharacteristics) -> UIViewController {
         return CharacteristicsViewController(viewModel: CharacteristicsViewModel(model: model))
     }
-    
 }

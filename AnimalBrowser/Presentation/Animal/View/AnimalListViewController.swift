@@ -27,7 +27,7 @@ final class AnimalListViewController: UIViewController {
     }()
     private let searchController = UISearchController(searchResultsController: nil)
     var queriesContainer = UIView()
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         animalTableView.dataSource = self
@@ -40,10 +40,6 @@ final class AnimalListViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         print("INIT GLOWNY")
-    }
-    
-    deinit {
-        print("DEINIT GLOWNY")
     }
     
     required init?(coder: NSCoder) {
@@ -70,6 +66,9 @@ final class AnimalListViewController: UIViewController {
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
         }
+        self.viewModel.queriesContainerHide = { [weak self] in
+            self?.queriesContainer.isHidden = true
+        }
     }
     
     private func setupViews() {
@@ -85,9 +84,7 @@ final class AnimalListViewController: UIViewController {
         let safeGuide = view.safeAreaLayoutGuide
         view.addSubview(searchBarContainer)
         view.addSubview(animalTableView)
-       
         view.addSubview(activityIndicator)
-        
         searchBarContainer.translatesAutoresizingMaskIntoConstraints = false
         searchBarContainer.heightAnchor.constraint(equalToConstant: 50).isActive = true
         searchBarContainer.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 10).isActive = true
@@ -102,7 +99,6 @@ final class AnimalListViewController: UIViewController {
         queriesContainer.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(queriesContainer)
         queriesContainer.isHidden = true
-        queriesContainer.backgroundColor = .lightGray
         queriesContainer.topAnchor.constraint(equalTo: searchBarContainer.bottomAnchor, constant: 50).isActive = true
         queriesContainer.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -50).isActive = true
         queriesContainer.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 20).isActive = true
@@ -161,7 +157,6 @@ extension AnimalListViewController: UITableViewDelegate {
 extension AnimalListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.clearTable()
         guard let text = searchBar.text else { return }
         viewModel.didSearch(query: text)
         searchController.isActive = false
@@ -175,28 +170,9 @@ extension AnimalListViewController: UISearchBarDelegate {
 extension AnimalListViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
         viewModel.showAnimalQueriesListVC()
-      //  queriesContainer.isHidden = false
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
         viewModel.closeAnimalQueriesListVC()
-       // queriesContainer.isHidden = true
-      }
-}
-
-class Vcvc: UIViewController {
-    override func viewDidLoad() {
-         super.viewDidLoad()
-        view.backgroundColor = .red
-    }
-}
-
-extension UIViewController {
-    
-    func add(child: UIViewController, container: UIView) {
-        addChild(child)
-        child.view.frame = container.bounds
-        container.addSubview(child.view)
-        child.didMove(toParent: self)
     }
 }

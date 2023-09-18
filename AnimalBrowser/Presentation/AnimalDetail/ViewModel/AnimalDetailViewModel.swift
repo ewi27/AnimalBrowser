@@ -17,8 +17,6 @@ final class AnimalDetailViewModel {
     private var actions: AnimalDetailViewModelActivities?
     private let model: DetailModel
     private var sectionsList: [AnimalDetailSectionList] = [AnimalDetailSectionList]()
-//    var giveTaxonomy: ((AnimalTaxonomy) -> ())?
-//    var giveCharacteristics: ((AnimalCharacteristics) -> ())?
     
     init(model: DetailModel, actions: AnimalDetailViewModelActivities? = nil) {
         self.model = model

@@ -10,6 +10,7 @@ import Foundation
 protocol AnimalQueryRepository {
     func saveQuery(query: AnimalQuery,
                    completion: @escaping (Result<AnimalQuery, Error>) -> Void)
-    func fetchQueries(completion: @escaping (Result<[AnimalQuery], Error>) -> Void)
+    func fetchQueries(queriesCount: Int,
+                      completion: @escaping (Result<[AnimalQuery], Error>) -> Void)
 }
 

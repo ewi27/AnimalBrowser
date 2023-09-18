@@ -10,14 +10,12 @@ import UIKit
 final class AnimalQueriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var queriesTableView: UITableView!
+    
     private let viewModel: AnimalQueriesListViewModel
     private var animalQueries: [AnimalQuery] = []
-    var tabelka: [String] = ["bla", "bla2", "bla3"]
     
     init?(coder: NSCoder, viewModel: AnimalQueriesListViewModel) {
         self.viewModel = viewModel
-        print("hej tu init")
-        print("\(animalQueries)")
         super.init(coder: coder)
     }
     
@@ -27,14 +25,15 @@ final class AnimalQueriesViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        queriesTableView.dataSource = self
-        queriesTableView.delegate = self
-        view.backgroundColor = .lightGray
+        queriesTableView.backgroundColor = .lightGray
+        setupViewModel()
     }
-
+    
     func setupViewModel() {
         viewModel.reloadData = { [weak self] in
-            self?.queriesTableView.reloadData()
+            DispatchQueue.main.async {
+                self?.queriesTableView.reloadData()
+            }
         }
         viewModel.giveQueries = { [weak self] queries in
             self?.animalQueries = queries
@@ -42,15 +41,15 @@ final class AnimalQueriesViewController: UIViewController, UITableViewDelegate, 
         viewModel.viewWillAppear()
     }
     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      //  animalQueries.count
-         tabelka.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        animalQueries.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "queriesCell" , for: indexPath) as! AnimalQueriesTableViewCell
-       //  cell.queryLabel.text = animalQueries[indexPath.row].query
-         cell.queryLabel.text = tabelka[indexPath.row]
+        let model = CellModel(text: animalQueries[indexPath.row].query)
+        cell.backgroundColor = .lightGray
+        cell.fillCell(with: model)
         return cell
     }
     
@@ -58,7 +57,8 @@ final class AnimalQueriesViewController: UIViewController, UITableViewDelegate, 
         print("hej tu deinit")
     }
     
-//     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//         viewModel.didSelect(query: animalQueries[indexPath.row].query)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        viewModel.didSelect(query: animalQueries[indexPath.row].query)
+    }
 }

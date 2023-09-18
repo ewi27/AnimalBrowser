@@ -8,10 +8,10 @@
 import Foundation
 
 final class DefaultAnimalQueryRepository: AnimalQueryRepository {
-
-  private let animalQueryPersistentStorage: AnimalQueryStorage
     
-    init(animalQueryPersistentStorage: AnimalQueryStorage = CoreDataAnimalQueriesStorage()) {
+    private let animalQueryPersistentStorage: AnimalQueryStorage
+    
+    init(animalQueryPersistentStorage: AnimalQueryStorage = CoreDataAnimalQueriesStorage(queriesCount: 10)) {
         self.animalQueryPersistentStorage = animalQueryPersistentStorage
     }
     
@@ -19,7 +19,7 @@ final class DefaultAnimalQueryRepository: AnimalQueryRepository {
         animalQueryPersistentStorage.saveQuery(query: query, completion: completion)
     }
     
-    func fetchQueries(completion: @escaping (Result<[AnimalQuery], Error>) -> Void) {
-        animalQueryPersistentStorage.fetchQueries(completion: completion)
+    func fetchQueries(queriesCount: Int, completion: @escaping (Result<[AnimalQuery], Error>) -> Void) {
+        animalQueryPersistentStorage.fetchQueries(queriesCount: queriesCount, completion: completion)
     }
 }

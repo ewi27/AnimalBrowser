@@ -22,13 +22,11 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .lightGray
+        setupTable()
         table.delegate = self
         table.dataSource = self
-        setupTable()
         table.layer.cornerRadius = 25
         table.layer.masksToBounds = true
-        
-//        updateTableConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -37,12 +35,6 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
     
     func fillTable(model: [String]) {
         self.model = model
-    }
-    
-    func updateTableConstraints() {
-//            constraint.isActive = false
-//            constraint = table.heightAnchor.constraint(equalToConstant: table.contentSize.height)
-//            constraint.isActive = true
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,20 +55,5 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
         table.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 30).isActive = true
         table.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -30).isActive = true
         table.bottomAnchor.constraint(lessThanOrEqualTo: safeGuide.bottomAnchor).isActive = true
-    }
-}
-
-
-class SelfSizingTableView: UITableView {
-    override var contentSize: CGSize {
-        didSet {
-            invalidateIntrinsicContentSize()
-            setNeedsLayout()
-        }
-    }
-
-    override var intrinsicContentSize: CGSize {
-        let height = min(.infinity, contentSize.height)
-        return CGSize(width: contentSize.width, height: height)
     }
 }
