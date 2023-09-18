@@ -41,7 +41,6 @@
 		C9684FC72A3F55F40008790C /* AnimalEndpointPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FC62A3F55F40008790C /* AnimalEndpointPaths.swift */; };
 		C9684FCA2A40BCC50008790C /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FC92A40BCC50008790C /* APIEndpoint.swift */; };
 		C9684FCC2A5481980008790C /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FCB2A5481980008790C /* DetailModel.swift */; };
-		C9684FCF2A59E69A0008790C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FCE2A59E69A0008790C /* Color.swift */; };
 		C9684FD22A66E0FE0008790C /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9684FD02A66E0FE0008790C /* CoreDataStorage.xcdatamodeld */; };
 		C9684FD62A66E1600008790C /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FD52A66E1600008790C /* CoreDataStorage.swift */; };
 		C9684FD82A66E6CB0008790C /* AnimalQueryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FD72A66E6CB0008790C /* AnimalQueryRepository.swift */; };
@@ -56,8 +55,9 @@
 		C9D422562AB23A6100FD96F7 /* AnimalQueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422552AB23A6100FD96F7 /* AnimalQueriesViewController.swift */; };
 		C9D422592AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D422582AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard */; };
 		C9D4225C2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */; };
-		C9D422602AB624D000FD96F7 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4225F2AB624D000FD96F7 /* ViewControllerUtils.swift */; };
-		C9D4226A2AB8CD1A00FD96F7 /* TableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422692AB8CD1A00FD96F7 /* TableViewUtils.swift */; };
+		C9D4226D2AB8D93500FD96F7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4226C2AB8D93500FD96F7 /* Color.swift */; };
+		C9D4226F2AB8D94700FD96F7 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4226E2AB8D94700FD96F7 /* ViewControllerUtils.swift */; };
+		C9D422712AB8DAE300FD96F7 /* TableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422702AB8DAE300FD96F7 /* TableViewUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +116,6 @@
 		C9684FC62A3F55F40008790C /* AnimalEndpointPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalEndpointPaths.swift; sourceTree = "<group>"; };
 		C9684FC92A40BCC50008790C /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		C9684FCB2A5481980008790C /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
-		C9684FCE2A59E69A0008790C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C9684FD12A66E0FE0008790C /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		C9684FD52A66E1600008790C /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		C9684FD72A66E6CB0008790C /* AnimalQueryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueryRepository.swift; sourceTree = "<group>"; };
@@ -131,8 +130,9 @@
 		C9D422552AB23A6100FD96F7 /* AnimalQueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesViewController.swift; sourceTree = "<group>"; };
 		C9D422582AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimalQueriesStoryboard.storyboard; sourceTree = "<group>"; };
 		C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesTableViewCell.swift; sourceTree = "<group>"; };
-		C9D4225F2AB624D000FD96F7 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
-		C9D422692AB8CD1A00FD96F7 /* TableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtils.swift; sourceTree = "<group>"; };
+		C9D4226C2AB8D93500FD96F7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C9D4226E2AB8D94700FD96F7 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
+		C9D422702AB8DAE300FD96F7 /* TableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				C9684FF32A8A2CCE0008790C /* Flow */,
-				C9684FCD2A59E6580008790C /* Utils */,
+				C9D4226B2AB8D92600FD96F7 /* Utils */,
 				C9684F932A3B0E5B0008790C /* Animal */,
 				C9684FE62A86619E0008790C /* AnimalQueriesList */,
 				C9684F9D2A3B310B0008790C /* AnimalDetail */,
@@ -437,16 +437,6 @@
 			path = EndpointMaking;
 			sourceTree = "<group>";
 		};
-		C9684FCD2A59E6580008790C /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				C9684FCE2A59E69A0008790C /* Color.swift */,
-				C9D4225F2AB624D000FD96F7 /* ViewControllerUtils.swift */,
-				C9D422692AB8CD1A00FD96F7 /* TableViewUtils.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		C9684FD32A66E11D0008790C /* PersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +489,16 @@
 				C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C9D4226B2AB8D92600FD96F7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C9D4226C2AB8D93500FD96F7 /* Color.swift */,
+				C9D4226E2AB8D94700FD96F7 /* ViewControllerUtils.swift */,
+				C9D422702AB8DAE300FD96F7 /* TableViewUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -637,19 +637,19 @@
 				C9684FB12A3B33EA0008790C /* CharacteristicsViewController.swift in Sources */,
 				C9684F902A3B06090008790C /* AnimalTableViewCell.swift in Sources */,
 				C9684FF92A8B97F50008790C /* AnimalViewControllersFactory.swift in Sources */,
+				C9D4226F2AB8D94700FD96F7 /* ViewControllerUtils.swift in Sources */,
 				C93BF0142A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift in Sources */,
 				C9684FC32A3F40AC0008790C /* AnimalRequestQuery.swift in Sources */,
-				C9D4226A2AB8CD1A00FD96F7 /* TableViewUtils.swift in Sources */,
 				C9684FE02A6D55E60008790C /* DataMapping.swift in Sources */,
 				C9684FA72A3B33840008790C /* TaxonomyView.swift in Sources */,
 				C9684FCA2A40BCC50008790C /* APIEndpoint.swift in Sources */,
 				C9684F9C2A3B2FEE0008790C /* DefaultAnimalRepository.swift in Sources */,
-				C9D422602AB624D000FD96F7 /* ViewControllerUtils.swift in Sources */,
 				C9684FBE2A3C5DD80008790C /* AnimalModel.swift in Sources */,
 				C9684FB72A3B356F0008790C /* AnimalDetailSectionList.swift in Sources */,
 				C9684F972A3B0EC00008790C /* AnimalSectionList.swift in Sources */,
 				C9684FD62A66E1600008790C /* CoreDataStorage.swift in Sources */,
 				C9684FC72A3F55F40008790C /* AnimalEndpointPaths.swift in Sources */,
+				C9D422712AB8DAE300FD96F7 /* TableViewUtils.swift in Sources */,
 				C9684FD82A66E6CB0008790C /* AnimalQueryRepository.swift in Sources */,
 				C9684FB32A3B33FB0008790C /* CharacteristicsViewModel.swift in Sources */,
 				C93BEFDC2A378394007F7C39 /* AppDelegate.swift in Sources */,
@@ -657,6 +657,7 @@
 				C9684FDC2A6D48C70008790C /* DefaultAnimalQueryRepository.swift in Sources */,
 				C9D422562AB23A6100FD96F7 /* AnimalQueriesViewController.swift in Sources */,
 				C9684F922A3B0CC40008790C /* AnimalCellModel.swift in Sources */,
+				C9D4226D2AB8D93500FD96F7 /* Color.swift in Sources */,
 				C9684FDE2A6D4B3E0008790C /* AnimalQueryStorage.swift in Sources */,
 				C9684FE22A7C06A80008790C /* FetchAnimalQueriesUseCase.swift in Sources */,
 				C9684FF22A893AE10008790C /* AppFlowCoordinator.swift in Sources */,
@@ -666,7 +667,6 @@
 				C93BF01B2A378FA7007F7C39 /* Animal.swift in Sources */,
 				C9684FCC2A5481980008790C /* DetailModel.swift in Sources */,
 				C9684FB52A3B34F30008790C /* AnimalDetailViewModel.swift in Sources */,
-				C9684FCF2A59E69A0008790C /* Color.swift in Sources */,
 				C93BF0192A378F3D007F7C39 /* AnimalQuery.swift in Sources */,
 				C9D4225C2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift in Sources */,
 				C9684FBB2A3C5B860008790C /* DataTransferService.swift in Sources */,
