@@ -24,6 +24,7 @@ final class AnimalViewModel {
             self.reloadData?()
         }
     }
+    var queriesContainerHide: (() -> ())?
     var animalModel: Animal = Animal()
     var detailModel: [DetailModel] = [DetailModel]()
     var reloadData: (() -> ())?
@@ -31,14 +32,15 @@ final class AnimalViewModel {
     var startActivityIndicator: (() -> ())?
     var stopActivityIndicator: (() -> ())?
     var giveError: ((String) -> ())?
-    let searchBarPlaceholderText = "ANIMAL"
-
+    let searchBarPlaceholderText = "SEARCH ANIMAL"
+    
     init(viewModelActivities: AnimalViewModelActivities? = nil, fetchAnimalInfoUseCase: FetchAnimalInfoUseCase = DefaultFetchAnimalInfoUseCase()) {
         self.viewModelActivities = viewModelActivities
         self.fetchAnimalInfoUseCase = fetchAnimalInfoUseCase
     }
     
     func didSearch(query: String) {
+        clearTable()
         startActivityIndicator?()
         fetchData(query: AnimalQuery(query: query))
     }
@@ -58,12 +60,15 @@ final class AnimalViewModel {
         viewModelActivities?.closeAnimalQueriesList()
     }
     
-    func clearTable() {
+    private func clearTable() {
         sectionsList.removeAll()
     }
     
     private func tappedAnimalQuery(animalQuery: AnimalQuery) {
+        startActivityIndicator?()
+        clearTable()
         fetchData(query: animalQuery)
+        queriesContainerHide?()
     }
     
     private func fetchData(query: AnimalQuery) {

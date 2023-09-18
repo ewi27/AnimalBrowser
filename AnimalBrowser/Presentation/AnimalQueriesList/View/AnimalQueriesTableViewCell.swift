@@ -7,8 +7,15 @@
 
 import UIKit
 
+struct CellModel {
+    let text: String
+}
+
 final class AnimalQueriesTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var queryLabel: UILabel!
-
+    @IBOutlet weak private var queryLabel: UILabel!
+    
+    func fillCell(with model: CellModel) {
+        self.queryLabel.text = model.text
+    }
 }

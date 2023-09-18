@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DefaultAnimalRepository: AnimalRepository {
+final class DefaultAnimalRepository: AnimalRepository {
     
     private let dataTransferService: DataTransferService
     
