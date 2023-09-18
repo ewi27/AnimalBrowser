@@ -14,7 +14,7 @@ final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDeleg
     private let table: SelfSizingTableView = {
         let table = SelfSizingTableView()
         table.register(AnimalTableViewCell.self, forCellReuseIdentifier: AnimalTableViewCell.idetifier)
-        table.rowHeight = 100
+        table.rowHeight = 150
         table.bounces = false
         return table
     }()

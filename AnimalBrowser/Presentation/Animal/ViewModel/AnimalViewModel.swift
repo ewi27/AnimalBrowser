@@ -7,8 +7,16 @@
 
 import Foundation
 
+//dzialania informujace AnimalFlowCoordinator, kiedy wyswietlic inne widoki; struct zeby moc ew. dodac kolejne akcje
+struct AnimalViewModelActivities {
+    let showAnimalDetails: (DetailModel) -> Void
+    let showAnimalQueriesList: (@escaping (_ selectingAction: AnimalQuery) -> Void) -> Void
+    let closeAnimalQueriesList: () -> Void?
+}
+
 final class AnimalViewModel {
     
+    private var viewModelActivities: AnimalViewModelActivities?
     private var fetchAnimalInfoUseCase: FetchAnimalInfoUseCase
     var sectionsList: [AnimalSectionList] = [AnimalSectionList]() {
         didSet {
@@ -20,12 +28,13 @@ final class AnimalViewModel {
     var detailModel: [DetailModel] = [DetailModel]()
     var reloadData: (() -> ())?
     var giveSections: (([AnimalSectionList]) -> ())?
-    var presentDetailScreen: ((DetailModel) -> ())?
     var startActivityIndicator: (() -> ())?
     var stopActivityIndicator: (() -> ())?
     var giveError: ((String) -> ())?
-    
-    init(fetchAnimalInfoUseCase: FetchAnimalInfoUseCase = DefaultFetchAnimalInfoUseCase()) {
+    let searchBarPlaceholderText = "ANIMAL"
+
+    init(viewModelActivities: AnimalViewModelActivities? = nil, fetchAnimalInfoUseCase: FetchAnimalInfoUseCase = DefaultFetchAnimalInfoUseCase()) {
+        self.viewModelActivities = viewModelActivities
         self.fetchAnimalInfoUseCase = fetchAnimalInfoUseCase
     }
     
@@ -37,12 +46,24 @@ final class AnimalViewModel {
     func pressName(section: Int, row: Int) {
         switch sectionsList[section] {
         case .animalName:
-            presentDetailScreen?(detailModel[row])
+            viewModelActivities?.showAnimalDetails(detailModel[row])
         }
+    }
+    
+    func showAnimalQueriesListVC() {
+        viewModelActivities?.showAnimalQueriesList(tappedAnimalQuery(animalQuery:))
+    }
+    
+    func closeAnimalQueriesListVC() {
+        viewModelActivities?.closeAnimalQueriesList()
     }
     
     func clearTable() {
         sectionsList.removeAll()
+    }
+    
+    private func tappedAnimalQuery(animalQuery: AnimalQuery) {
+        fetchData(query: animalQuery)
     }
     
     private func fetchData(query: AnimalQuery) {

@@ -42,17 +42,17 @@ final class AnimalDetailViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        sections = self.viewModel.makeSections()
-        viewModel.giveTaxonomy = { [weak self] model in
-            let viewModel = TaxonomyViewModel(model: model)
-            let viewController = TaxonomyViewController(viewModel: viewModel)
-            self?.navigationController?.pushViewController(viewController, animated: true)
-        }
-        viewModel.giveCharacteristics = { [weak self] model in
-            let viewModel = CharacteristicsViewModel(model: model)
-            let viewController = CharacteristicsViewController(viewModel: viewModel)
-            self?.navigationController?.pushViewController(viewController, animated: true)
-        }
+       sections = self.viewModel.makeSections()
+//        viewModel.giveTaxonomy = { [weak self] model in
+//            let viewModel = TaxonomyViewModel(model: model)
+//            let viewController = TaxonomyViewController(viewModel: viewModel)
+//            self?.navigationController?.pushViewController(viewController, animated: true)
+//        }
+//        viewModel.giveCharacteristics = { [weak self] model in
+//            let viewModel = CharacteristicsViewModel(model: model)
+//            let viewController = CharacteristicsViewController(viewModel: viewModel)
+//            self?.navigationController?.pushViewController(viewController, animated: true)
+//        }
     }
     
     private func setupConstraints() {

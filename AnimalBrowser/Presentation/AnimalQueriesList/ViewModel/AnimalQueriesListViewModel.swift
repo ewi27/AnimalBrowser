@@ -18,9 +18,11 @@ final class AnimalQueriesListViewModel {
     }
     var reloadData: (() -> ())?
     var giveQueries: (([AnimalQuery]) -> ())?
+    var selectingAction: ((AnimalQuery) -> Void)?
     
-    init(fetchAnimalQueriesUseCase: FetchAnimalQueries = DefaultFetchAnimalQueriesUseCase()) {
+    init(fetchAnimalQueriesUseCase: FetchAnimalQueries = DefaultFetchAnimalQueriesUseCase(), selectingAction: ((AnimalQuery) -> Void)? = nil) {
         self.fetchAnimalQueriesUseCase = fetchAnimalQueriesUseCase
+        self.selectingAction = selectingAction
     }
     
     private func fetchQueries() {
@@ -38,6 +40,6 @@ final class AnimalQueriesListViewModel {
     }
     
     func didSelect(query: String) {
-        
+        selectingAction?(AnimalQuery(query: query))
     }
 }

@@ -7,16 +7,11 @@
 
 import UIKit
 
-final class AnimalBrowserViewController: UIViewController {
+final class AnimalListViewController: UIViewController {
     
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchTextField.backgroundColor = .gray
-        searchBar.barTintColor = .lightGray
-        searchBar.placeholder = "ANIMAL"
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        return searchBar
-    }()
+    private var viewModel: AnimalViewModel
+    private var searchBarContainer = UIView()
+    private var sections: [AnimalSectionList] = [AnimalSectionList]()
     private let animalTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .gray
@@ -30,22 +25,29 @@ final class AnimalBrowserViewController: UIViewController {
         activityIndicator.color = UIColor().lightPink()
         return activityIndicator
     }()
-    private let viewModel = AnimalViewModel()
-    private var sections: [AnimalSectionList] = [AnimalSectionList]()
     private let searchController = UISearchController(searchResultsController: nil)
+    var queriesContainer = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
-        self.navigationController?.navigationBar.tintColor = .darkGray
-        self.animalTableView.layer.cornerRadius = 25
-        self.animalTableView.layer.masksToBounds = true
         animalTableView.dataSource = self
         animalTableView.delegate = self
-        searchBar.delegate = self
-        setupConstraints()
+        setupViews()
         setupViewModel()
-        print(AnimalQueriesCell.reuseIdentifier)
+    }
+    
+    init(viewModel: AnimalViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        print("INIT GLOWNY")
+    }
+    
+    deinit {
+        print("DEINIT GLOWNY")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupViewModel() {
@@ -61,11 +63,6 @@ final class AnimalBrowserViewController: UIViewController {
         self.viewModel.giveSections = { [weak self] sections in
             self?.sections = sections
         }
-        self.viewModel.presentDetailScreen = { [weak self] model in
-            let viewModel = AnimalDetailViewModel(model: (.init( taxonomy: model.taxonomy, locations: model.locations, characteristics: model.characteristics)))
-            let viewController = AnimalDetailViewController(viewModel: viewModel)
-            self?.navigationController?.pushViewController(viewController, animated: true)
-        }
         self.viewModel.giveError = { error in
             let alert = UIAlertController(title: "ERROR", message: error , preferredStyle: .alert)
             alert.view.tintColor = UIColor().lightPink()
@@ -75,29 +72,58 @@ final class AnimalBrowserViewController: UIViewController {
         }
     }
     
+    private func setupViews() {
+        view.backgroundColor = .lightGray
+        self.navigationController?.navigationBar.tintColor = .darkGray
+        self.animalTableView.layer.cornerRadius = 25
+        self.animalTableView.layer.masksToBounds = true
+        setupConstraints()
+        setupSearchController()
+    }
+    
     private func setupConstraints() {
         let safeGuide = view.safeAreaLayoutGuide
+        view.addSubview(searchBarContainer)
         view.addSubview(animalTableView)
-        view.addSubview(searchBar)
+       
         view.addSubview(activityIndicator)
-        searchBar.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 10).isActive = true
-        searchBar.bottomAnchor.constraint(equalTo: animalTableView.topAnchor, constant: -30).isActive = true
-        searchBar.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 20).isActive = true
-        searchBar.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
+        
+        searchBarContainer.translatesAutoresizingMaskIntoConstraints = false
+        searchBarContainer.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        searchBarContainer.topAnchor.constraint(equalTo: safeGuide.topAnchor, constant: 10).isActive = true
+        searchBarContainer.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor).isActive = true
+        searchBarContainer.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor).isActive = true
+        animalTableView.topAnchor.constraint(equalTo: searchBarContainer.bottomAnchor, constant: 50).isActive = true
         animalTableView.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -50).isActive = true
         animalTableView.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 20).isActive = true
         animalTableView.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: safeGuide.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: safeGuide.centerYAnchor).isActive = true
+        queriesContainer.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(queriesContainer)
+        queriesContainer.isHidden = true
+        queriesContainer.backgroundColor = .lightGray
+        queriesContainer.topAnchor.constraint(equalTo: searchBarContainer.bottomAnchor, constant: 50).isActive = true
+        queriesContainer.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -50).isActive = true
+        queriesContainer.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor, constant: 20).isActive = true
+        queriesContainer.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
     }
     
-    func setupSearchController() {
+    private func setupSearchController() {
         searchController.delegate = self
-        
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self
+        searchController.searchBar.searchTextField.backgroundColor = .gray
+        searchController.searchBar.barTintColor = .lightGray
+        searchController.searchBar.tintColor = UIColor().lightPink()
+        searchController.searchBar.placeholder = viewModel.searchBarPlaceholderText
+        searchBarContainer.addSubview(searchController.searchBar)
+        definesPresentationContext = true
     }
 }
 
-extension AnimalBrowserViewController: UITableViewDataSource {
+extension AnimalListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sections[section].cellCount
@@ -118,7 +144,7 @@ extension AnimalBrowserViewController: UITableViewDataSource {
     }
 }
 
-extension AnimalBrowserViewController: UITableViewDelegate {
+extension AnimalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         70
     }
@@ -132,12 +158,13 @@ extension AnimalBrowserViewController: UITableViewDelegate {
     }
 }
 
-extension AnimalBrowserViewController: UISearchBarDelegate {
+extension AnimalListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         viewModel.clearTable()
         guard let text = searchBar.text else { return }
         viewModel.didSearch(query: text)
+        searchController.isActive = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -145,6 +172,31 @@ extension AnimalBrowserViewController: UISearchBarDelegate {
     }
 }
 
-extension AnimalBrowserViewController: UISearchControllerDelegate {
+extension AnimalListViewController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        viewModel.showAnimalQueriesListVC()
+      //  queriesContainer.isHidden = false
+    }
     
+    func didDismissSearchController(_ searchController: UISearchController) {
+        viewModel.closeAnimalQueriesListVC()
+       // queriesContainer.isHidden = true
+      }
+}
+
+class Vcvc: UIViewController {
+    override func viewDidLoad() {
+         super.viewDidLoad()
+        view.backgroundColor = .red
+    }
+}
+
+extension UIViewController {
+    
+    func add(child: UIViewController, container: UIView) {
+        addChild(child)
+        child.view.frame = container.bounds
+        container.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
 }
