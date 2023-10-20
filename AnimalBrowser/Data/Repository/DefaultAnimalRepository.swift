@@ -6,8 +6,6 @@
 //
 // repozytorium - agregacja zrodel danych (np zdalne, lokalne) oraz mapowanie na modele domenowe
 
-import Foundation
-
 final class DefaultAnimalRepository: AnimalRepository {
     
     private let dataTransferService: DataTransferService
@@ -16,7 +14,7 @@ final class DefaultAnimalRepository: AnimalRepository {
         self.dataTransferService = dataTransferService
     }
     
-    func fetchAnimalInfo(query: AnimalQuery, completion: @escaping (Result<Animal, Error>) -> ()?) {
+    func fetchAnimalInfo(query: AnimalQuery, completion: @escaping (Result<Animals, Error>) -> ()?) {
         
         let requestDTO = AnimalRequestQuery(name: query.query)
         let endpoint = AnimalAPIEndpoint().makeEndpoint(requestQuery: requestDTO)

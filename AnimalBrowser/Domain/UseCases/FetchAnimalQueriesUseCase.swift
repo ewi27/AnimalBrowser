@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol FetchAnimalQueries {
+protocol FetchAnimalQueriesUseCase {
     func execute(queriesCount: Int,
                  completion: @escaping (Result<[AnimalQuery], Error>) -> Void)
 }
 
-final class DefaultFetchAnimalQueriesUseCase: FetchAnimalQueries {
+final class DefaultFetchAnimalQueriesUseCase: FetchAnimalQueriesUseCase {
     
-    private let queriesRepository: AnimalQueryRepository
+    private let queriesRepository: AnimalFetchQueriesRepository
     
-    init(queriesRepository: AnimalQueryRepository = DefaultAnimalQueryRepository()) {
+    init(queriesRepository: AnimalFetchQueriesRepository = DefaultAnimalQueryRepository()) {
         self.queriesRepository = queriesRepository
     }
     

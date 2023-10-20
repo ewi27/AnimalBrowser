@@ -5,8 +5,6 @@
 //  Created by Ewelina on 15/06/2023.
 //
 
-import Foundation
-
 struct AnimalDetailViewModelActivities {
     let showTaxonomy: (AnimalTaxonomy) -> Void?
     let showCharacteristics: (AnimalCharacteristics) -> Void?
@@ -14,11 +12,11 @@ struct AnimalDetailViewModelActivities {
 
 final class AnimalDetailViewModel {
     
-    private var actions: AnimalDetailViewModelActivities?
+    private let actions: AnimalDetailViewModelActivities?
     private let model: DetailModel
     private var sectionsList: [AnimalDetailSectionList] = [AnimalDetailSectionList]()
     
-    init(model: DetailModel, actions: AnimalDetailViewModelActivities? = nil) {
+    init(model: DetailModel, actions: AnimalDetailViewModelActivities?) {
         self.model = model
         self.actions = actions
     }

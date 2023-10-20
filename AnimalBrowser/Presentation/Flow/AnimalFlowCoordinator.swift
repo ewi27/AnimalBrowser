@@ -53,9 +53,6 @@ final class AnimalFlowCoordinator {
         let vc = dependencies.makeAnimalQueriesViewController(selectingAction: selecingAction)
         moviesListViewController.add(child: vc, container: container)
         queriesListVC = vc
-        if queriesListVC != nil {
-            print("nie jest nilek")
-        }
         container.isHidden = false
     }
     

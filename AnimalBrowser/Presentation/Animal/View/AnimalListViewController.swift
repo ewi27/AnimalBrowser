@@ -9,8 +9,8 @@ import UIKit
 
 final class AnimalListViewController: UIViewController {
     
-    private var viewModel: AnimalViewModel
-    private var searchBarContainer = UIView()
+    private let viewModel: AnimalViewModel
+    private let searchBarContainer = UIView()
     private var sections: [AnimalSectionList] = [AnimalSectionList]()
     private let animalTableView: UITableView = {
         let tableView = UITableView()
@@ -27,7 +27,7 @@ final class AnimalListViewController: UIViewController {
     }()
     private let searchController = UISearchController(searchResultsController: nil)
     var queriesContainer = UIView()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         animalTableView.dataSource = self
@@ -39,7 +39,6 @@ final class AnimalListViewController: UIViewController {
     init(viewModel: AnimalViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        print("INIT GLOWNY")
     }
     
     required init?(coder: NSCoder) {
@@ -59,15 +58,13 @@ final class AnimalListViewController: UIViewController {
         self.viewModel.giveSections = { [weak self] sections in
             self?.sections = sections
         }
-        self.viewModel.giveError = { error in
-            let alert = UIAlertController(title: "ERROR", message: error , preferredStyle: .alert)
-            alert.view.tintColor = UIColor().lightPink()
-            let cancelAction = UIAlertAction(title: "CANCEL", style: .cancel)
-            alert.addAction(cancelAction)
-            self.present(alert, animated: true, completion: nil)
+        self.viewModel.giveError = { [weak self] error in
+            let action = [UIAlertAction(title: "CANCEL", style: .cancel)]
+            self?.setAlert(title: "ERROR", message: error, actions: action, color: UIColor().lightPink())
         }
-        self.viewModel.queriesContainerHide = { [weak self] in
-            self?.queriesContainer.isHidden = true
+        self.viewModel.giveSearchBarQuery = { [weak self] query in
+            self?.searchController.isActive = false
+            self?.searchController.searchBar.text = query
         }
     }
     
@@ -96,8 +93,9 @@ final class AnimalListViewController: UIViewController {
         animalTableView.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -20).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: safeGuide.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: safeGuide.centerYAnchor).isActive = true
-        queriesContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(queriesContainer)
+        queriesContainer.translatesAutoresizingMaskIntoConstraints = false
         queriesContainer.isHidden = true
         queriesContainer.topAnchor.constraint(equalTo: searchBarContainer.bottomAnchor, constant: 50).isActive = true
         queriesContainer.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -50).isActive = true
@@ -157,9 +155,9 @@ extension AnimalListViewController: UITableViewDelegate {
 extension AnimalListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text else { return }
-        viewModel.didSearch(query: text)
+        guard let text = searchBar.text, !text.isEmpty else { return }
         searchController.isActive = false
+        viewModel.didSearch(query: text)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

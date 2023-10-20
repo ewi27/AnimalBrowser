@@ -5,9 +5,7 @@
 //  Created by Ewelina on 15/06/2023.
 //
 
-import Foundation
-
-enum AnimalDetailSectionList {
+enum AnimalDetailSectionList: Equatable {
     
     case taxonomy(String)
     case locations([String])

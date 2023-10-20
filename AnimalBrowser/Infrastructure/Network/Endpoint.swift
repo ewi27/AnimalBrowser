@@ -19,7 +19,7 @@ protocol Requestable {
 }
 
 class Endpoint: Requestable {
-    
+
     var baseUrl: String
     var path: String
     var queryParametersEncodable: Encodable?

@@ -25,7 +25,6 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
     
     func makeAnimalDetailViewController(detail: DetailModel, actions: AnimalDetailViewModelActivities) -> UIViewController {
         AnimalDetailViewController(viewModel: makeDetailViewModel(detail: detail, actions: actions))
-        //  AnimalDetailViewController(viewModel: AnimalDetailViewModel(model: detail, actions: actions))
     }
     
     private func makeDetailViewModel(detail: DetailModel, actions: AnimalDetailViewModelActivities) -> AnimalDetailViewModel {
@@ -39,7 +38,7 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
         return vc
     }
     
-    func makeAnimalQueriesViewModel(selectingAction: @escaping (AnimalQuery) -> Void) -> AnimalQueriesListViewModel {
+    private func makeAnimalQueriesViewModel(selectingAction: @escaping (AnimalQuery) -> Void) -> AnimalQueriesListViewModel {
         return AnimalQueriesListViewModel(numberOfQueriesToShow: 10, selectingAction: selectingAction)
     }
     

@@ -5,8 +5,6 @@
 //  Created by Ewelina on 15/06/2023.
 //
 
-import Foundation
-
 final class CharacteristicsViewModel {
     
     private let model: AnimalCharacteristics

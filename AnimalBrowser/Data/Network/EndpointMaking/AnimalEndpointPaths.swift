@@ -5,8 +5,6 @@
 //  Created by Ewelina on 18/06/2023.
 //
 
-import Foundation
-
 struct AnimalRequestPaths {
     static let baseUrl = "https://api.api-ninjas.com"
     static let path = "/v1/animals"

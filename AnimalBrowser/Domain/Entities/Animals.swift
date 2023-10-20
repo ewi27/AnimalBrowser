@@ -5,18 +5,16 @@
 //  Created by Ewelina on 12/06/2023.
 //
 
-import Foundation
+typealias Animals = [Animal]
 
-typealias Animal = [AnimalInformation]
-
-struct AnimalInformation {
+struct Animal: Equatable {
     let name: String
     let taxonomy: AnimalTaxonomy
     let locations: [String]
     let characteristics: AnimalCharacteristics
 }
 
-struct AnimalCharacteristics {
+struct AnimalCharacteristics: Equatable {
     let prey: String?
     let habitat: String?
     let diet: String?
@@ -27,7 +25,7 @@ struct AnimalCharacteristics {
     let weight: String?
 }
 
-struct AnimalTaxonomy {
+struct AnimalTaxonomy: Equatable {
     let kingdom: String
     let phylum: String
     let taxonomyClass: String

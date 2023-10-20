@@ -12,13 +12,12 @@
 		C93BEFE02A378394007F7C39 /* AnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDF2A378394007F7C39 /* AnimalListViewController.swift */; };
 		C93BEFE52A378396007F7C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93BEFE42A378396007F7C39 /* Assets.xcassets */; };
 		C93BEFE82A378396007F7C39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93BEFE62A378396007F7C39 /* LaunchScreen.storyboard */; };
-		C93BEFF32A378396007F7C39 /* AnimalBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFF22A378396007F7C39 /* AnimalBrowserTests.swift */; };
 		C93BEFFD2A378396007F7C39 /* AnimalBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFFC2A378396007F7C39 /* AnimalBrowserUITests.swift */; };
 		C93BEFFF2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFFE2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift */; };
 		C93BF0122A378DFE007F7C39 /* AnimalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0112A378DFE007F7C39 /* AnimalRepository.swift */; };
 		C93BF0142A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0132A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift */; };
 		C93BF0192A378F3D007F7C39 /* AnimalQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */; };
-		C93BF01B2A378FA7007F7C39 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF01A2A378FA7007F7C39 /* Animal.swift */; };
+		C93BF01B2A378FA7007F7C39 /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF01A2A378FA7007F7C39 /* Animals.swift */; };
 		C9684F902A3B06090008790C /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684F8F2A3B06080008790C /* AnimalTableViewCell.swift */; };
 		C9684F922A3B0CC40008790C /* AnimalCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684F912A3B0CC40008790C /* AnimalCellModel.swift */; };
 		C9684F972A3B0EC00008790C /* AnimalSectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684F962A3B0EC00008790C /* AnimalSectionList.swift */; };
@@ -52,12 +51,32 @@
 		C9684FF22A893AE10008790C /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FF12A893AE10008790C /* AppFlowCoordinator.swift */; };
 		C9684FF52A8A2CE60008790C /* AnimalFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FF42A8A2CE60008790C /* AnimalFlowCoordinator.swift */; };
 		C9684FF92A8B97F50008790C /* AnimalViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9684FF82A8B97F50008790C /* AnimalViewControllersFactory.swift */; };
+		C97AA71B2AC48EE3001ED34C /* AnimalViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AA71A2AC48EE3001ED34C /* AnimalViewModelTests.swift */; };
+		C97AA71E2AC48F99001ED34C /* FetchAnimalInfoUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AA71D2AC48F99001ED34C /* FetchAnimalInfoUseCaseSpy.swift */; };
+		C97AA7212AC4AB5B001ED34C /* DispatchQueueTypeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AA7202AC4AB5B001ED34C /* DispatchQueueTypeMock.swift */; };
+		C97AA7242AC4ABFF001ED34C /* DispatchQueueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97AA7232AC4ABFF001ED34C /* DispatchQueueType.swift */; };
+		C98D3A402ACB3EC200EACA2C /* AnimalDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A3F2ACB3EC200EACA2C /* AnimalDetailViewModelTests.swift */; };
+		C98D3A462ACC9B0C00EACA2C /* TaxonomyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A452ACC9B0C00EACA2C /* TaxonomyViewModelTests.swift */; };
+		C98D3A482ACC9B2400EACA2C /* CharacteristicsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A472ACC9B2400EACA2C /* CharacteristicsViewModelTests.swift */; };
+		C98D3A4C2ACEACF200EACA2C /* AnimalQueriesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A4B2ACEACF200EACA2C /* AnimalQueriesListTests.swift */; };
+		C98D3A4E2ACEAE5700EACA2C /* FetchAnimalQueriesUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A4D2ACEAE5700EACA2C /* FetchAnimalQueriesUseCaseSpy.swift */; };
+		C98D3A542AD4482C00EACA2C /* FetchAnimalInfoUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A532AD4482B00EACA2C /* FetchAnimalInfoUseCaseTests.swift */; };
+		C98D3A572AD87BB600EACA2C /* AnimalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A562AD87BB600EACA2C /* AnimalRepositoryTests.swift */; };
+		C98D3A5B2ADD562F00EACA2C /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A5A2ADD562F00EACA2C /* DataTransferServiceTests.swift */; };
+		C98D3A5E2ADD579600EACA2C /* FetchAnimalQueriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A5D2ADD579600EACA2C /* FetchAnimalQueriesUseCaseTests.swift */; };
+		C98D3A602ADD799B00EACA2C /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A5F2ADD799B00EACA2C /* NetworkServiceTests.swift */; };
+		C98D3A652ADEF95800EACA2C /* URLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A642ADEF95800EACA2C /* URLSessionManager.swift */; };
+		C98D3A672AE17BC600EACA2C /* AnimalQueryRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A662AE17BC600EACA2C /* AnimalQueryRepositoryTests.swift */; };
+		C98D3A692AE2784900EACA2C /* DataTransferServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A682AE2784900EACA2C /* DataTransferServiceSpy.swift */; };
+		C98D3A6B2AE278B900EACA2C /* AnimalQueryStorageSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A6A2AE278B900EACA2C /* AnimalQueryStorageSpy.swift */; };
+		C98D3A6D2AE2791400EACA2C /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A6C2AE2791400EACA2C /* NetworkServiceSpy.swift */; };
 		C9D422562AB23A6100FD96F7 /* AnimalQueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422552AB23A6100FD96F7 /* AnimalQueriesViewController.swift */; };
 		C9D422592AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D422582AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard */; };
 		C9D4225C2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */; };
 		C9D4226D2AB8D93500FD96F7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4226C2AB8D93500FD96F7 /* Color.swift */; };
 		C9D4226F2AB8D94700FD96F7 /* ViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4226E2AB8D94700FD96F7 /* ViewControllerUtils.swift */; };
 		C9D422712AB8DAE300FD96F7 /* TableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422702AB8DAE300FD96F7 /* TableViewUtils.swift */; };
+		C9D423002ABDBB8200FD96F7 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422FF2ABDBB8200FD96F7 /* AlertUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,14 +105,13 @@
 		C93BEFE72A378396007F7C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C93BEFE92A378396007F7C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C93BEFEE2A378396007F7C39 /* AnimalBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C93BEFF22A378396007F7C39 /* AnimalBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBrowserTests.swift; sourceTree = "<group>"; };
 		C93BEFF82A378396007F7C39 /* AnimalBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93BEFFC2A378396007F7C39 /* AnimalBrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBrowserUITests.swift; sourceTree = "<group>"; };
 		C93BEFFE2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBrowserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C93BF0112A378DFE007F7C39 /* AnimalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRepository.swift; sourceTree = "<group>"; };
 		C93BF0132A378E3C007F7C39 /* FetchAnimalInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalInfoUseCase.swift; sourceTree = "<group>"; };
 		C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQuery.swift; sourceTree = "<group>"; };
-		C93BF01A2A378FA7007F7C39 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		C93BF01A2A378FA7007F7C39 /* Animals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
 		C9684F8F2A3B06080008790C /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
 		C9684F912A3B0CC40008790C /* AnimalCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCellModel.swift; sourceTree = "<group>"; };
 		C9684F962A3B0EC00008790C /* AnimalSectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalSectionList.swift; sourceTree = "<group>"; };
@@ -127,12 +145,32 @@
 		C9684FF12A893AE10008790C /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		C9684FF42A8A2CE60008790C /* AnimalFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalFlowCoordinator.swift; sourceTree = "<group>"; };
 		C9684FF82A8B97F50008790C /* AnimalViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewControllersFactory.swift; sourceTree = "<group>"; };
+		C97AA71A2AC48EE3001ED34C /* AnimalViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewModelTests.swift; sourceTree = "<group>"; };
+		C97AA71D2AC48F99001ED34C /* FetchAnimalInfoUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalInfoUseCaseSpy.swift; sourceTree = "<group>"; };
+		C97AA7202AC4AB5B001ED34C /* DispatchQueueTypeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueTypeMock.swift; sourceTree = "<group>"; };
+		C97AA7232AC4ABFF001ED34C /* DispatchQueueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueType.swift; sourceTree = "<group>"; };
+		C98D3A3F2ACB3EC200EACA2C /* AnimalDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C98D3A452ACC9B0C00EACA2C /* TaxonomyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxonomyViewModelTests.swift; sourceTree = "<group>"; };
+		C98D3A472ACC9B2400EACA2C /* CharacteristicsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsViewModelTests.swift; sourceTree = "<group>"; };
+		C98D3A4B2ACEACF200EACA2C /* AnimalQueriesListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesListTests.swift; sourceTree = "<group>"; };
+		C98D3A4D2ACEAE5700EACA2C /* FetchAnimalQueriesUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalQueriesUseCaseSpy.swift; sourceTree = "<group>"; };
+		C98D3A532AD4482B00EACA2C /* FetchAnimalInfoUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalInfoUseCaseTests.swift; sourceTree = "<group>"; };
+		C98D3A562AD87BB600EACA2C /* AnimalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRepositoryTests.swift; sourceTree = "<group>"; };
+		C98D3A5A2ADD562F00EACA2C /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
+		C98D3A5D2ADD579600EACA2C /* FetchAnimalQueriesUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchAnimalQueriesUseCaseTests.swift; sourceTree = "<group>"; };
+		C98D3A5F2ADD799B00EACA2C /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		C98D3A642ADEF95800EACA2C /* URLSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionManager.swift; sourceTree = "<group>"; };
+		C98D3A662AE17BC600EACA2C /* AnimalQueryRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueryRepositoryTests.swift; sourceTree = "<group>"; };
+		C98D3A682AE2784900EACA2C /* DataTransferServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceSpy.swift; sourceTree = "<group>"; };
+		C98D3A6A2AE278B900EACA2C /* AnimalQueryStorageSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueryStorageSpy.swift; sourceTree = "<group>"; };
+		C98D3A6C2AE2791400EACA2C /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
 		C9D422552AB23A6100FD96F7 /* AnimalQueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesViewController.swift; sourceTree = "<group>"; };
 		C9D422582AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimalQueriesStoryboard.storyboard; sourceTree = "<group>"; };
 		C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesTableViewCell.swift; sourceTree = "<group>"; };
 		C9D4226C2AB8D93500FD96F7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C9D4226E2AB8D94700FD96F7 /* ViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUtils.swift; sourceTree = "<group>"; };
 		C9D422702AB8DAE300FD96F7 /* TableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtils.swift; sourceTree = "<group>"; };
+		C9D422FF2ABDBB8200FD96F7 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +221,7 @@
 		C93BEFDA2A378394007F7C39 /* AnimalBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				C97AA7222AC4ABEF001ED34C /* Common */,
 				C93BF00B2A3786A7007F7C39 /* Application */,
 				C93BF00E2A378723007F7C39 /* Presentation */,
 				C93BF00D2A37871A007F7C39 /* Domain */,
@@ -198,7 +237,12 @@
 		C93BEFF12A378396007F7C39 /* AnimalBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
-				C93BEFF22A378396007F7C39 /* AnimalBrowserTests.swift */,
+				C97AA71F2AC4AB1D001ED34C /* Helpers */,
+				C97AA71C2AC48F87001ED34C /* Spies */,
+				C97AA7172AC48EBC001ED34C /* Presentation */,
+				C98D3A4F2AD0507400EACA2C /* Domain */,
+				C98D3A552AD878EC00EACA2C /* Data */,
+				C98D3A582ADD529500EACA2C /* Infrastructure */,
 			);
 			path = AnimalBrowserTests;
 			sourceTree = "<group>";
@@ -260,7 +304,7 @@
 		C93BF0152A378E7A007F7C39 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C93BF01A2A378FA7007F7C39 /* Animal.swift */,
+				C93BF01A2A378FA7007F7C39 /* Animals.swift */,
 				C93BF0182A378F3D007F7C39 /* AnimalQuery.swift */,
 			);
 			path = Entities;
@@ -422,6 +466,7 @@
 			children = (
 				C9684FBA2A3C5B860008790C /* DataTransferService.swift */,
 				C9684FB82A3C5B2B0008790C /* NetworkService.swift */,
+				C98D3A642ADEF95800EACA2C /* URLSessionManager.swift */,
 				C9684FBF2A3CC5B50008790C /* Endpoint.swift */,
 			);
 			path = Network;
@@ -481,6 +526,169 @@
 			path = Flow;
 			sourceTree = "<group>";
 		};
+		C97AA7172AC48EBC001ED34C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C97AA7182AC48EC6001ED34C /* Animal */,
+				C98D3A3D2ACB3E7500EACA2C /* AnimalDetail */,
+				C98D3A492ACEACB900EACA2C /* AnimalQueriesList */,
+				C98D3A412ACC99CF00EACA2C /* Taxonomy */,
+				C98D3A422ACC99D700EACA2C /* Characteristics */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C97AA7182AC48EC6001ED34C /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				C97AA7192AC48ECA001ED34C /* ViewModel */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		C97AA7192AC48ECA001ED34C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C97AA71A2AC48EE3001ED34C /* AnimalViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C97AA71C2AC48F87001ED34C /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				C97AA71D2AC48F99001ED34C /* FetchAnimalInfoUseCaseSpy.swift */,
+				C98D3A4D2ACEAE5700EACA2C /* FetchAnimalQueriesUseCaseSpy.swift */,
+				C97AA7202AC4AB5B001ED34C /* DispatchQueueTypeMock.swift */,
+				C98D3A682AE2784900EACA2C /* DataTransferServiceSpy.swift */,
+				C98D3A6A2AE278B900EACA2C /* AnimalQueryStorageSpy.swift */,
+				C98D3A6C2AE2791400EACA2C /* NetworkServiceSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		C97AA71F2AC4AB1D001ED34C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C97AA7222AC4ABEF001ED34C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C97AA7232AC4ABFF001ED34C /* DispatchQueueType.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C98D3A3D2ACB3E7500EACA2C /* AnimalDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A3E2ACB3E9300EACA2C /* ViewModel */,
+			);
+			path = AnimalDetail;
+			sourceTree = "<group>";
+		};
+		C98D3A3E2ACB3E9300EACA2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A3F2ACB3EC200EACA2C /* AnimalDetailViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C98D3A412ACC99CF00EACA2C /* Taxonomy */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A432ACC9AAE00EACA2C /* ViewModel */,
+			);
+			path = Taxonomy;
+			sourceTree = "<group>";
+		};
+		C98D3A422ACC99D700EACA2C /* Characteristics */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A442ACC9ABE00EACA2C /* ViewModel */,
+			);
+			path = Characteristics;
+			sourceTree = "<group>";
+		};
+		C98D3A432ACC9AAE00EACA2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A452ACC9B0C00EACA2C /* TaxonomyViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C98D3A442ACC9ABE00EACA2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A472ACC9B2400EACA2C /* CharacteristicsViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C98D3A492ACEACB900EACA2C /* AnimalQueriesList */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A4A2ACEACDF00EACA2C /* ViewModel */,
+			);
+			path = AnimalQueriesList;
+			sourceTree = "<group>";
+		};
+		C98D3A4A2ACEACDF00EACA2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A4B2ACEACF200EACA2C /* AnimalQueriesListTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C98D3A4F2AD0507400EACA2C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A502AD0508400EACA2C /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C98D3A502AD0508400EACA2C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A5D2ADD579600EACA2C /* FetchAnimalQueriesUseCaseTests.swift */,
+				C98D3A532AD4482B00EACA2C /* FetchAnimalInfoUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		C98D3A552AD878EC00EACA2C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A562AD87BB600EACA2C /* AnimalRepositoryTests.swift */,
+				C98D3A662AE17BC600EACA2C /* AnimalQueryRepositoryTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C98D3A582ADD529500EACA2C /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A592ADD561B00EACA2C /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		C98D3A592ADD561B00EACA2C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C98D3A5A2ADD562F00EACA2C /* DataTransferServiceTests.swift */,
+				C98D3A5F2ADD799B00EACA2C /* NetworkServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C9D422542AB23A4600FD96F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +705,7 @@
 				C9D4226C2AB8D93500FD96F7 /* Color.swift */,
 				C9D4226E2AB8D94700FD96F7 /* ViewControllerUtils.swift */,
 				C9D422702AB8DAE300FD96F7 /* TableViewUtils.swift */,
+				C9D422FF2ABDBB8200FD96F7 /* AlertUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -563,7 +772,7 @@
 		C93BEFD02A378394007F7C39 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
@@ -634,6 +843,7 @@
 			files = (
 				C9684FB92A3C5B2B0008790C /* NetworkService.swift in Sources */,
 				C93BEFE02A378394007F7C39 /* AnimalListViewController.swift in Sources */,
+				C97AA7242AC4ABFF001ED34C /* DispatchQueueType.swift in Sources */,
 				C9684FB12A3B33EA0008790C /* CharacteristicsViewController.swift in Sources */,
 				C9684F902A3B06090008790C /* AnimalTableViewCell.swift in Sources */,
 				C9684FF92A8B97F50008790C /* AnimalViewControllersFactory.swift in Sources */,
@@ -660,12 +870,14 @@
 				C9D4226D2AB8D93500FD96F7 /* Color.swift in Sources */,
 				C9684FDE2A6D4B3E0008790C /* AnimalQueryStorage.swift in Sources */,
 				C9684FE22A7C06A80008790C /* FetchAnimalQueriesUseCase.swift in Sources */,
+				C9D423002ABDBB8200FD96F7 /* AlertUtils.swift in Sources */,
 				C9684FF22A893AE10008790C /* AppFlowCoordinator.swift in Sources */,
 				C9684FAF2A3B33D40008790C /* CharacteristicsView.swift in Sources */,
 				C9684FA92A3B33990008790C /* TaxonomyViewController.swift in Sources */,
 				C93BF0122A378DFE007F7C39 /* AnimalRepository.swift in Sources */,
-				C93BF01B2A378FA7007F7C39 /* Animal.swift in Sources */,
+				C93BF01B2A378FA7007F7C39 /* Animals.swift in Sources */,
 				C9684FCC2A5481980008790C /* DetailModel.swift in Sources */,
+				C98D3A652ADEF95800EACA2C /* URLSessionManager.swift in Sources */,
 				C9684FB52A3B34F30008790C /* AnimalDetailViewModel.swift in Sources */,
 				C93BF0192A378F3D007F7C39 /* AnimalQuery.swift in Sources */,
 				C9D4225C2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift in Sources */,
@@ -684,7 +896,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C93BEFF32A378396007F7C39 /* AnimalBrowserTests.swift in Sources */,
+				C97AA71B2AC48EE3001ED34C /* AnimalViewModelTests.swift in Sources */,
+				C98D3A462ACC9B0C00EACA2C /* TaxonomyViewModelTests.swift in Sources */,
+				C98D3A6B2AE278B900EACA2C /* AnimalQueryStorageSpy.swift in Sources */,
+				C98D3A402ACB3EC200EACA2C /* AnimalDetailViewModelTests.swift in Sources */,
+				C98D3A692AE2784900EACA2C /* DataTransferServiceSpy.swift in Sources */,
+				C98D3A5B2ADD562F00EACA2C /* DataTransferServiceTests.swift in Sources */,
+				C98D3A572AD87BB600EACA2C /* AnimalRepositoryTests.swift in Sources */,
+				C97AA7212AC4AB5B001ED34C /* DispatchQueueTypeMock.swift in Sources */,
+				C98D3A542AD4482C00EACA2C /* FetchAnimalInfoUseCaseTests.swift in Sources */,
+				C97AA71E2AC48F99001ED34C /* FetchAnimalInfoUseCaseSpy.swift in Sources */,
+				C98D3A672AE17BC600EACA2C /* AnimalQueryRepositoryTests.swift in Sources */,
+				C98D3A6D2AE2791400EACA2C /* NetworkServiceSpy.swift in Sources */,
+				C98D3A602ADD799B00EACA2C /* NetworkServiceTests.swift in Sources */,
+				C98D3A5E2ADD579600EACA2C /* FetchAnimalQueriesUseCaseTests.swift in Sources */,
+				C98D3A482ACC9B2400EACA2C /* CharacteristicsViewModelTests.swift in Sources */,
+				C98D3A4E2ACEAE5700EACA2C /* FetchAnimalQueriesUseCaseSpy.swift in Sources */,
+				C98D3A4C2ACEACF200EACA2C /* AnimalQueriesListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +956,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -788,6 +1017,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
