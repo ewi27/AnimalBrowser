@@ -11,6 +11,7 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    // TODO: to nie powinno byc w AppDelegate
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "CoreDataStorage")
         container.loadPersistentStores { description, error in
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
     
+    // TODO: to tez
     func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {

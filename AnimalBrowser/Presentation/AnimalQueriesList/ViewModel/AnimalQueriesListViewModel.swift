@@ -5,11 +5,9 @@
 //  Created by Ewelina on 11/08/2023.
 //
 
-import Foundation
-
 final class AnimalQueriesListViewModel {
     
-    private let fetchAnimalQueriesUseCase: FetchAnimalQueries
+    private let fetchAnimalQueriesUseCase: FetchAnimalQueriesUseCase
     private let numberOfQueriesToShow: Int
     private var queries: [AnimalQuery] = [] {
         didSet {
@@ -21,7 +19,9 @@ final class AnimalQueriesListViewModel {
     var giveQueries: (([AnimalQuery]) -> ())?
     var selectingAction: ((AnimalQuery) -> Void)?
     
-    init(fetchAnimalQueriesUseCase: FetchAnimalQueries = DefaultFetchAnimalQueriesUseCase(),numberOfQueriesToShow: Int, selectingAction: ((AnimalQuery) -> Void)? = nil) {
+    init(fetchAnimalQueriesUseCase: FetchAnimalQueriesUseCase = DefaultFetchAnimalQueriesUseCase(),
+         numberOfQueriesToShow: Int,
+         selectingAction: ((AnimalQuery) -> Void)?) {
         self.fetchAnimalQueriesUseCase = fetchAnimalQueriesUseCase
         self.numberOfQueriesToShow = numberOfQueriesToShow
         self.selectingAction = selectingAction
@@ -40,7 +40,8 @@ final class AnimalQueriesListViewModel {
             switch result {
             case .success(let queries):
                 self.queries = queries
-            case .failure(let error): print(error)
+            case .failure(_):
+                break
             }
         }
     }

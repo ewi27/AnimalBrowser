@@ -10,7 +10,7 @@ import UIKit
 final class CharacteristicsView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     private var model: [String] = []
-    private var constraint = NSLayoutConstraint()
+    private let constraint = NSLayoutConstraint()
     private let table: SelfSizingTableView = {
         let table = SelfSizingTableView()
         table.register(AnimalTableViewCell.self, forCellReuseIdentifier: AnimalTableViewCell.idetifier)

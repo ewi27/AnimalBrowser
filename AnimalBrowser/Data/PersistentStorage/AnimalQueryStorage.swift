@@ -5,7 +5,6 @@
 //  Created by Ewelina on 23/07/2023.
 //
 
-import Foundation
 import CoreData
 
 protocol AnimalQueryStorage {

@@ -13,7 +13,7 @@ struct CellModel {
 
 final class AnimalQueriesTableViewCell: UITableViewCell {
     
-    @IBOutlet weak private var queryLabel: UILabel!
+    @IBOutlet private weak var queryLabel: UILabel!
     
     func fillCell(with model: CellModel) {
         self.queryLabel.text = model.text

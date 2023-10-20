@@ -5,8 +5,6 @@
 //  Created by Ewelina on 19/06/2023.
 //
 
-import Foundation
-
 protocol MakeEndpoint {
     func makeEndpoint(requestQuery: AnimalRequestQuery) -> Endpoint
 }

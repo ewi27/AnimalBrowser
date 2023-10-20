@@ -9,7 +9,7 @@ import UIKit
 
 final class CharacteristicsViewController: UIViewController {
     
-    private var viewModel: CharacteristicsViewModel
+    private let viewModel: CharacteristicsViewModel
     private let characteristicsView = CharacteristicsView()
     
     init(viewModel: CharacteristicsViewModel){

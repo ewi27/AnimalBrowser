@@ -14,10 +14,16 @@ protocol NetworkService {
 }
 
 final class DefaultNetworkService: NetworkService {
+    var urlSessionManager: URLSessionManager
+    
+    init(urlSessionDataTask: URLSessionManager = DefaultURLSessionManager()) {
+        self.urlSessionManager = urlSessionDataTask
+    }
+    
     func request(endpoint: Requestable,
                  completion: @escaping (Result<Data,Error>) -> Void) {
         let urlRequest = endpoint.makeUrlRequest()
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let task = urlSessionManager.request(with: urlRequest) { data, response, error in
             if let data = data {
                 completion(.success(data))
             }
@@ -28,4 +34,3 @@ final class DefaultNetworkService: NetworkService {
         task.resume()
     }
 }
-

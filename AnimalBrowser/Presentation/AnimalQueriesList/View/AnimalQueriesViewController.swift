@@ -9,7 +9,7 @@ import UIKit
 
 final class AnimalQueriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var queriesTableView: UITableView!
+    @IBOutlet private weak var queriesTableView: UITableView!
     
     private let viewModel: AnimalQueriesListViewModel
     private var animalQueries: [AnimalQuery] = []
@@ -51,10 +51,6 @@ final class AnimalQueriesViewController: UIViewController, UITableViewDelegate, 
         cell.backgroundColor = .lightGray
         cell.fillCell(with: model)
         return cell
-    }
-    
-    deinit {
-        print("hej tu deinit")
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -9,7 +9,7 @@ import UIKit
 
 final class TaxonomyView: UIView {
     
-    struct Model {
+    struct Model: Equatable {
         var kingdomText: String
         var phylumText: String
         var taxonomyClassText: String

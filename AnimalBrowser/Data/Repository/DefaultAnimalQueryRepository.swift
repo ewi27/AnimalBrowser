@@ -5,9 +5,7 @@
 //  Created by Ewelina on 23/07/2023.
 //
 
-import Foundation
-
-final class DefaultAnimalQueryRepository: AnimalQueryRepository {
+final class DefaultAnimalQueryRepository: AnimalFetchQueriesRepository, AnimalSaveQueryRepository {
     
     private let animalQueryPersistentStorage: AnimalQueryStorage
     

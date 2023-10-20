@@ -45,9 +45,9 @@ struct Taxonomy: Decodable {
 }
 
 extension AnimalModel {
-    func mapToDomain() -> Animal {
+    func mapToDomain() -> Animals {
         let model = self.map { element in
-            AnimalInformation.init(name: element.name,
+            Animal.init(name: element.name,
                                    taxonomy: element.taxonomy.mapToTaxonomy(),
                                    locations: element.locations,
                                    characteristics: element.characteristics.mapToCharacteristics())

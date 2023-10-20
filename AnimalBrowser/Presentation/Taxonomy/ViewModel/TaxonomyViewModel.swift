@@ -5,11 +5,9 @@
 //  Created by Ewelina on 15/06/2023.
 //
 
-import Foundation
-
 final class TaxonomyViewModel {
     
-    private var model: AnimalTaxonomy
+    private let model: AnimalTaxonomy
     var update: ((TaxonomyView.Model) -> ())?
     
     init(model: AnimalTaxonomy) {

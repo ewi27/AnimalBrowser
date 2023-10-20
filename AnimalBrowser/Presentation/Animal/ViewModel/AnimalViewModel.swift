@@ -5,9 +5,10 @@
 //  Created by Ewelina on 15/06/2023.
 //
 
+//dzialania informujace AnimalFlowCoordinator, kiedy wyswietlic inne widoki; struct zeby moc ew. dodac kolejne akcje
+
 import Foundation
 
-//dzialania informujace AnimalFlowCoordinator, kiedy wyswietlic inne widoki; struct zeby moc ew. dodac kolejne akcje
 struct AnimalViewModelActivities {
     let showAnimalDetails: (DetailModel) -> Void
     let showAnimalQueriesList: (@escaping (_ selectingAction: AnimalQuery) -> Void) -> Void
@@ -18,29 +19,33 @@ final class AnimalViewModel {
     
     private var viewModelActivities: AnimalViewModelActivities?
     private var fetchAnimalInfoUseCase: FetchAnimalInfoUseCase
-    var sectionsList: [AnimalSectionList] = [AnimalSectionList]() {
+    private var sectionsList: [AnimalSectionList] = [AnimalSectionList]() {
         didSet {
             self.giveSections?(sectionsList)
             self.reloadData?()
         }
     }
-    var queriesContainerHide: (() -> ())?
-    var animalModel: Animal = Animal()
-    var detailModel: [DetailModel] = [DetailModel]()
+    private var animalModel: Animals = Animals()
+    private var detailModel: [DetailModel] = [DetailModel]()
     var reloadData: (() -> ())?
     var giveSections: (([AnimalSectionList]) -> ())?
     var startActivityIndicator: (() -> ())?
     var stopActivityIndicator: (() -> ())?
     var giveError: ((String) -> ())?
+    var giveSearchBarQuery: ((String) -> ())?
     let searchBarPlaceholderText = "SEARCH ANIMAL"
+    private let queue: DispatchQueueType
     
-    init(viewModelActivities: AnimalViewModelActivities? = nil, fetchAnimalInfoUseCase: FetchAnimalInfoUseCase = DefaultFetchAnimalInfoUseCase()) {
+    init(viewModelActivities: AnimalViewModelActivities? = nil, fetchAnimalInfoUseCase: FetchAnimalInfoUseCase = DefaultFetchAnimalInfoUseCase(),
+         queue: DispatchQueueType = DispatchQueue.main) {
         self.viewModelActivities = viewModelActivities
         self.fetchAnimalInfoUseCase = fetchAnimalInfoUseCase
+        self.queue = queue
     }
     
     func didSearch(query: String) {
-        clearTable()
+        giveSearchBarQuery?(query)
+        clearList()
         startActivityIndicator?()
         fetchData(query: AnimalQuery(query: query))
     }
@@ -60,20 +65,20 @@ final class AnimalViewModel {
         viewModelActivities?.closeAnimalQueriesList()
     }
     
-    private func clearTable() {
+    private func clearList() {
         sectionsList.removeAll()
     }
     
     private func tappedAnimalQuery(animalQuery: AnimalQuery) {
+        giveSearchBarQuery?(animalQuery.query)
+        clearList()
         startActivityIndicator?()
-        clearTable()
         fetchData(query: animalQuery)
-        queriesContainerHide?()
     }
     
     private func fetchData(query: AnimalQuery) {
         fetchAnimalInfoUseCase.execute(query: query) { result in
-            DispatchQueue.main.async {
+            self.queue.async {
                 switch result {
                 case .success(let model):
                     if model.isEmpty {
@@ -90,12 +95,11 @@ final class AnimalViewModel {
         }
     }
     
-    private func setupSections(model: Animal) {
-        let names = model.map { $0.name }
-        sectionsList.append(.animalName(names))
+    private func setupSections(model: Animals) {
+        sectionsList.append(.animalName(model.map { $0.name }))
     }
     
-    private func setupDetailSections(model: Animal) {
+    private func setupDetailSections(model: Animals) {
         detailModel = model.map { element in
             DetailModel.init(taxonomy: element.taxonomy, locations: element.locations, characteristics: element.characteristics)
         }
