@@ -11,7 +11,6 @@
 		C93BEFDE2A378394007F7C39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDD2A378394007F7C39 /* SceneDelegate.swift */; };
 		C93BEFE02A378394007F7C39 /* AnimalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFDF2A378394007F7C39 /* AnimalListViewController.swift */; };
 		C93BEFE52A378396007F7C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93BEFE42A378396007F7C39 /* Assets.xcassets */; };
-		C93BEFE82A378396007F7C39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93BEFE62A378396007F7C39 /* LaunchScreen.storyboard */; };
 		C93BEFFD2A378396007F7C39 /* AnimalBrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFFC2A378396007F7C39 /* AnimalBrowserUITests.swift */; };
 		C93BEFFF2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BEFFE2A378396007F7C39 /* AnimalBrowserUITestsLaunchTests.swift */; };
 		C93BF0122A378DFE007F7C39 /* AnimalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BF0112A378DFE007F7C39 /* AnimalRepository.swift */; };
@@ -70,6 +69,7 @@
 		C98D3A692AE2784900EACA2C /* DataTransferServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A682AE2784900EACA2C /* DataTransferServiceSpy.swift */; };
 		C98D3A6B2AE278B900EACA2C /* AnimalQueryStorageSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A6A2AE278B900EACA2C /* AnimalQueryStorageSpy.swift */; };
 		C98D3A6D2AE2791400EACA2C /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D3A6C2AE2791400EACA2C /* NetworkServiceSpy.swift */; };
+		C9B99D3F2AF6A14000A17503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B99D3E2AF6A14000A17503 /* LaunchScreen.storyboard */; };
 		C9D422562AB23A6100FD96F7 /* AnimalQueriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D422552AB23A6100FD96F7 /* AnimalQueriesViewController.swift */; };
 		C9D422592AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D422582AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard */; };
 		C9D4225C2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */; };
@@ -102,7 +102,6 @@
 		C93BEFDD2A378394007F7C39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C93BEFDF2A378394007F7C39 /* AnimalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListViewController.swift; sourceTree = "<group>"; };
 		C93BEFE42A378396007F7C39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C93BEFE72A378396007F7C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C93BEFE92A378396007F7C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C93BEFEE2A378396007F7C39 /* AnimalBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93BEFF82A378396007F7C39 /* AnimalBrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalBrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +163,7 @@
 		C98D3A682AE2784900EACA2C /* DataTransferServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceSpy.swift; sourceTree = "<group>"; };
 		C98D3A6A2AE278B900EACA2C /* AnimalQueryStorageSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueryStorageSpy.swift; sourceTree = "<group>"; };
 		C98D3A6C2AE2791400EACA2C /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
+		C9B99D3E2AF6A14000A17503 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9D422552AB23A6100FD96F7 /* AnimalQueriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesViewController.swift; sourceTree = "<group>"; };
 		C9D422582AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimalQueriesStoryboard.storyboard; sourceTree = "<group>"; };
 		C9D4225B2AB23A9D00FD96F7 /* AnimalQueriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalQueriesTableViewCell.swift; sourceTree = "<group>"; };
@@ -228,8 +228,8 @@
 				C93BF00C2A378714007F7C39 /* Data */,
 				C9684FC42A3F492B0008790C /* Infrastructure */,
 				C93BEFE42A378396007F7C39 /* Assets.xcassets */,
-				C93BEFE62A378396007F7C39 /* LaunchScreen.storyboard */,
 				C93BEFE92A378396007F7C39 /* Info.plist */,
+				C9B99D3E2AF6A14000A17503 /* LaunchScreen.storyboard */,
 			);
 			path = AnimalBrowser;
 			sourceTree = "<group>";
@@ -814,7 +814,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C93BEFE82A378396007F7C39 /* LaunchScreen.storyboard in Resources */,
+				C9B99D3F2AF6A14000A17503 /* LaunchScreen.storyboard in Resources */,
 				C9D422592AB23A8400FD96F7 /* AnimalQueriesStoryboard.storyboard in Resources */,
 				C93BEFE52A378396007F7C39 /* Assets.xcassets in Resources */,
 			);
@@ -939,17 +939,6 @@
 			targetProxy = C93BEFF92A378396007F7C39 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C93BEFE62A378396007F7C39 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C93BEFE72A378396007F7C39 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C93BF0002A378396007F7C39 /* Debug */ = {
@@ -1077,10 +1066,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimalBrowser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Animal Browser";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1103,10 +1092,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimalBrowser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Animal Browser";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

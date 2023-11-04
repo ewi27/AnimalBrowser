@@ -3,7 +3,7 @@
 //  AnimalBrowser
 //
 //  Created by Ewelina on 14/08/2023.
-// przeplyw viewControllerow zwiazany z wyszukiwaniem zwierzat: wpychanie vC z detalami o zwierzeciu, vC z sugestiami zapytan oraz vC glownego; komunikacja z view modelem glownego vc
+// przeplyw viewControllerow zwiazany z wyszukiwaniem zwierzat: wpychanie vc z detalami o zwierzeciu, vc z sugestiami zapytan oraz vc glownego; komunikacja z view modelem glownego vc oraz detail vm
 
 import UIKit
 
