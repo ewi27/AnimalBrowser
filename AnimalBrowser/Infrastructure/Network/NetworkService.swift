@@ -22,8 +22,8 @@ final class DefaultNetworkService: NetworkService {
     
     func request(endpoint: Requestable,
                  completion: @escaping (Result<Data,Error>) -> Void) {
-        let urlRequest = endpoint.makeUrlRequest()
-        let task = urlSessionManager.request(with: urlRequest) { data, response, error in
+        guard let urlRequest = endpoint.makeUrlRequest() else { return }
+        let task = urlSessionManager.request(urlRequest: urlRequest) { data, response, error in
             if let data = data {
                 completion(.success(data))
             }

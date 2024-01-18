@@ -3,7 +3,6 @@
 //  AnimalBrowser
 //
 //  Created by Ewelina on 14/08/2023.
-// przeplyw viewControllerow zwiazany z wyszukiwaniem zwierzat: wpychanie vC z detalami o zwierzeciu, vC z sugestiami zapytan oraz vC glownego; komunikacja z view modelem glownego vc
 
 import UIKit
 
@@ -79,3 +78,7 @@ final class AnimalFlowCoordinator {
         self.navigationController.pushViewController(vc, animated: true)
     }
 }
+
+/*
+ Przepływ ViewControllerów zwiazany z wyszukiwaniem zwierząt: wpychanie VC z detalami o zwierzeciu, VC z sugestiami zapytań oraz VC głównego(AnimalListVC); komunikacja z view modelem głównego VC oraz detail VM.
+*/

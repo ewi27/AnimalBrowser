@@ -8,15 +8,15 @@
 import Foundation
 
 protocol URLSessionManager {
-    func request(with: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+    func request(urlRequest: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
-class DefaultURLSessionManager: URLSessionManager {
+final class DefaultURLSessionManager: URLSessionManager {
     func request(
-        with: URLRequest,
+        urlRequest: URLRequest,
         completion: @escaping (Data?, URLResponse?, Error?) -> Void
     ) -> URLSessionDataTask {
-        let task = URLSession.shared.dataTask(with: with, completionHandler: completion)
+        let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: completion)
         task.resume()
         return task
     }

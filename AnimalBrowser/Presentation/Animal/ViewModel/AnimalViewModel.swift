@@ -5,10 +5,9 @@
 //  Created by Ewelina on 15/06/2023.
 //
 
-//dzialania informujace AnimalFlowCoordinator, kiedy wyswietlic inne widoki; struct zeby moc ew. dodac kolejne akcje
-
 import Foundation
 
+/* Działania informujace AnimalFlowCoordinator, kiedy wyświetlić inne widoki; struct żeby móc ew. dodać kolejne akcje */
 struct AnimalViewModelActivities {
     let showAnimalDetails: (DetailModel) -> Void
     let showAnimalQueriesList: (@escaping (_ selectingAction: AnimalQuery) -> Void) -> Void

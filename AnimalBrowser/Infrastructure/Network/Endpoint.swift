@@ -15,10 +15,10 @@ protocol Requestable {
     var queryParametersEncodable: Encodable? { get }
     var apiKey: String { get set }
     
-    func makeUrlRequest() -> URLRequest
+    func makeUrlRequest() -> URLRequest?
 }
 
-class Endpoint: Requestable {
+final class Endpoint: Requestable {
 
     var baseUrl: String
     var path: String
@@ -34,21 +34,22 @@ class Endpoint: Requestable {
         self.headerField = headerField
     }
     
-    func makeUrlRequest() -> URLRequest {
+    func makeUrlRequest() -> URLRequest? {
         let urlPath = "\(baseUrl)\(path)"
-        var urlComponents = URLComponents(string: urlPath)
+        guard var urlComponents = URLComponents(string: urlPath) else { return nil }
         var urlQueryItems = [URLQueryItem]()
         let queryParameters = try? queryParametersEncodable?.toDictionary()
-        queryParameters?.forEach { urlQueryItems.append(URLQueryItem(name: $0.key, value: "\($0.value)"))
+        guard let queryParam = queryParameters else { return nil }
+        queryParam.forEach { urlQueryItems.append(URLQueryItem(name: $0.key, value: "\($0.value)"))
         }
-        urlComponents?.queryItems = urlQueryItems
-        let url = urlComponents?.url
-        var urlRequest = URLRequest(url: url!)
+        urlComponents.queryItems = !urlQueryItems.isEmpty ? urlQueryItems : nil
+        guard let url = urlComponents.url else { return nil }
+        var urlRequest = URLRequest(url: url)
         urlRequest.setValue(apiKey, forHTTPHeaderField: headerField)
         return urlRequest
     }
 }
-
+ 
 private extension Encodable {
     func toDictionary() throws -> [String: Any]? {
         let data = try JSONEncoder().encode(self)

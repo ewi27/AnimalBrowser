@@ -90,3 +90,4 @@ extension CoreDataAnimalQueriesStorage {
         queries.suffix(queries.count - limit).forEach {context.delete($0)}
     }
 }
+
