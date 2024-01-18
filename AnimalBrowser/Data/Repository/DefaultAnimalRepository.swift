@@ -4,7 +4,7 @@
 //
 //  Created by Ewelina on 15/06/2023.
 //
-// repozytorium - agregacja zrodel danych (np zdalne, lokalne) oraz mapowanie na modele domenowe
+// Warstwa Repository jest odpowiedzialna za oddzielenie logiki biznesowej od źródeł danych zewnętrznych, takich jak baza danych, sieć czy inne źródła danych.
 
 final class DefaultAnimalRepository: AnimalRepository {
     

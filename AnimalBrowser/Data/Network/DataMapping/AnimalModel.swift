@@ -4,7 +4,7 @@
 //
 //  Created by Ewelina on 16/06/2023.
 //
-// modele na ktore dane sa dekodowane plus funkcje mapujace je na modele domenowe
+// Modele, na które dane sa dekodowane, plus funkcje mapujace je na modele domenowe.
 
 import Foundation
 
