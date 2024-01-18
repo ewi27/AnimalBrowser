@@ -248,7 +248,6 @@
 		C93BEFF12A378396007F7C39 /* AnimalBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
-				C97AA71F2AC4AB1D001ED34C /* Helpers */,
 				C97AA71C2AC48F87001ED34C /* Spies */,
 				C97AA7172AC48EBC001ED34C /* Presentation */,
 				C98D3A4F2AD0507400EACA2C /* Domain */,
@@ -592,13 +591,6 @@
 				C98D3A6C2AE2791400EACA2C /* NetworkServiceSpy.swift */,
 			);
 			path = Spies;
-			sourceTree = "<group>";
-		};
-		C97AA71F2AC4AB1D001ED34C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C97AA7222AC4ABEF001ED34C /* Common */ = {
