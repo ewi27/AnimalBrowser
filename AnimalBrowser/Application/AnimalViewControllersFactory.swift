@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, AnimalDetailFlowCoordinatorDependencies {
     
@@ -42,15 +43,34 @@ final class AnimalViewControllersFactory: AnimalFlowCoordinatorDependencies, Ani
         return AnimalQueriesListViewModel(numberOfQueriesToShow: 10, selectingAction: selectingAction)
     }
     
-    func makeAnimalFlowCoordinator() -> AnimalFlowCoordinator {
-        return AnimalFlowCoordinator(navigationController: navigationController, dependencies: self, detailDependencies: self)
+    func makeTaxonomyViewController(model: AnimalTaxonomy) -> UIViewController {
+        return TaxonomyViewController(viewModel: makeTaxonomyViewModel(model: model))
     }
     
-    func makeTaxonomyViewController(model: AnimalTaxonomy) -> UIViewController {
-        return TaxonomyViewController(viewModel: TaxonomyViewModel(model: model))
+    private func makeTaxonomyViewModel(model: AnimalTaxonomy) -> TaxonomyViewModel {
+        return TaxonomyViewModel(model: model)
     }
     
     func makeCharacteristicsViewController(model: AnimalCharacteristics) -> UIViewController {
-        return CharacteristicsViewController(viewModel: CharacteristicsViewModel(model: model))
+        //SwiftUI lub UIKit
+        if #available(iOS 17.0, *) {
+            let swiftUIView = CharacteristicsViewSwiftUI(viewModelWrapper: self.makeCharacteristicsViewModelWrapper(model: model))
+            let hostingVC = UIHostingController(rootView: swiftUIView)
+            return hostingVC
+        } else {
+            return CharacteristicsViewController(viewModel: makeCharacteristicsViewModel(model: model))
+        }
+    }
+    
+    private func makeCharacteristicsViewModelWrapper(model: AnimalCharacteristics) -> CharacteristicsViewModelWrapper {
+        return CharacteristicsViewModelWrapper(viewModel: makeCharacteristicsViewModel(model: model))
+    }
+    
+    private func makeCharacteristicsViewModel(model: AnimalCharacteristics) -> CharacteristicsViewModel {
+        return CharacteristicsViewModel(model: model)
+    }
+    
+    func makeAnimalFlowCoordinator() -> AnimalFlowCoordinator {
+        return AnimalFlowCoordinator(navigationController: navigationController, dependencies: self, detailDependencies: self)
     }
 }
