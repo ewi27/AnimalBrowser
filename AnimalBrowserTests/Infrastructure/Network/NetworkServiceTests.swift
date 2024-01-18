@@ -70,8 +70,8 @@ final class URLSessionMock: URLSessionManager {
     var mockResponse: URLResponse?
     var mockError: Error?
     
-    func request(with: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        let dataTask = URLSession.shared.dataTask(with: with)
+    func request(urlRequest: URLRequest, completion: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        let dataTask = URLSession.shared.dataTask(with: urlRequest)
         completion(mockData, mockResponse, mockError)
         return dataTask
     }
