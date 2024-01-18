@@ -20,7 +20,7 @@ final class CharacteristicsViewModel {
         mirror.children.forEach { child in
             if child.value is String {
                 guard let label = child.label else {return}
-                array.append("\(String(describing: label)): \(child.value as! String)")
+                array.append("\(String(describing: label).capitalized): \(child.value as! String)")
             }
             self.loadData?(array)
         }
