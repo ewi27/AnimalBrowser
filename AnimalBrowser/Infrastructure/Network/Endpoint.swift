@@ -4,7 +4,6 @@
 //
 //  Created by Ewelina on 16/06/2023.
 //
-// tutaj tworzony jest endpoint
 
 import Foundation
 

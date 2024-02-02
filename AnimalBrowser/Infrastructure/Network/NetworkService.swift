@@ -4,7 +4,6 @@
 //
 //  Created by Ewelina on 16/06/2023.
 //
-//klasa do wykonywania requestow w celu pobrania informacji
 
 import Foundation
 

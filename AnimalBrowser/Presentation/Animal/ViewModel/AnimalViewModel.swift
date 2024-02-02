@@ -7,7 +7,7 @@
 
 import Foundation
 
-/* Działania informujace AnimalFlowCoordinator, kiedy wyświetlić inne widoki; struct żeby móc ew. dodać kolejne akcje */
+/* Działania informujace AnimalFlowCoordinator, kiedy wyświetlić inne widoki */
 struct AnimalViewModelActivities {
     let showAnimalDetails: (DetailModel) -> Void
     let showAnimalQueriesList: (@escaping (_ selectingAction: AnimalQuery) -> Void) -> Void
