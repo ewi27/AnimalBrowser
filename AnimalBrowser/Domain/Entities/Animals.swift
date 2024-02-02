@@ -36,6 +36,7 @@ struct AnimalTaxonomy: Equatable {
 }
 
 /*
+ Notatka:
  Mapowanie modelu zgodnego z Decodable na model domenowy jest często używane z kilku powodów:
  Separacja warstw: W aplikacjach stosujących architekturę Clean lub podobne, mapowanie modeli pomaga w utrzymaniu oddzielenia warstw. Model domenowy jest używany w logice biznesowej i jest niezależny od struktury danych z bazy lub zewnętrznego źródła.
  Elastyczność i czytelność: Model domenowy może być dostosowany do potrzeb aplikacji lub logiki biznesowej. Czasami modele pochodzące bezpośrednio z bazy danych mogą zawierać więcej informacji niż potrzebne w warstwie logiki biznesowej. Mapowanie umożliwia filtrowanie danych i wybieranie tylko potrzebnych informacji.
